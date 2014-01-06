@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Course Description
+
+This course covers Internet application programming in depth,
+including client-server and web applications. Topics include sockets,
+concurrency, thread-pool and event-driven architectures, experimental
+performance evaluation, web database application design, security
+issues. Languages include C++, Python, CSS, and Javascript.
+
+# Prerequisites
+
+CS 360
+
+# Course Materials
+
+* [2014 Winter]({{url_for("show",directory="winter-2014")}})
+
+{% endfilter %}
+      
+{% endblock %}

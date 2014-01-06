@@ -1,0 +1,51 @@
+{% extends "winter-2014/sidebar.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Networks and Delay
+
+1. Kurose & Ross, Chapter 1, Problem P6
+1. Kurose & Ross, Chapter 1, Problem P23
+1. Kurose & Ross, Chapter 1, Problem P25
+1. Kurose & Ross, Chapter 1, Problem P26
+1. Kurose & Ross, Chapter 1, Problem P27
+1. Kurose & Ross, Chapter 1, Problem P31
+
+1. Use the following network and the convention that 1 kB = 10<sup>3</sup> bytes
+and 1 MB = 10<sup>6</sup> bytes.
+
+    1. Node A transmits a stream of 1 kB packets to node C. Assuming
+       no other traffic in the network, explain why there will never
+       be any queueing delay at node B.
+
+    1. Draw a diagram that represents the stream of packets over time,
+       using the example covered in class.
+
+    1. How long would it take to transfer a 1 MB file, divided into 1
+       kB packets, from A to C? Which type of delay dominates?
+
+    1. If both links are upgraded to a rate of 1 Gbps, how long would
+       it take to transfer a 1 MB file from A to C? Which type of
+       delay dominates now?
+
+1. Use the following network and the convention that 1 kB =
+10<sup>3</sup> bytes and 1 MB = 10<sup>6</sup> bytes.
+
+    1. Node A transmits 1000 packets, each of size 1 kB, to node
+       C. Explain why there will be queueing delay at node B.
+
+    1. Draw a diagram that represents the stream of packets over time,
+       using the example covered in class.
+
+    1. Derive a formula for the queueing delay for packet k What is
+       the largest number of packets the queue will ever hold?
+
+    1. How long would it take to transfer a 1 MB file, divided into 1
+       kB packets, from A to C? Does the queueing delay affect
+       transfer time?
+
+{% endfilter %}
+
+{% endblock %}

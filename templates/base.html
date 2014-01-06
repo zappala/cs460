@@ -1,0 +1,78 @@
+{% macro do_term() -%}
+{% block term %}
+{% endblock %}
+{%- endmacro %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CS 460 Computer Communications and Networking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/static/css/app.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="row-fluid">
+      <div id="topbar">
+	<div class="container">
+	  <div class="university span3">
+	    <a href="http://byu.edu">BYU</a> | <a href="http://cs.byu.edu">Computer Science</a>
+	  </div>
+	  <div class="course span9">
+	    <a href={{url_for("show",directory=None,page="index")}}>CS 460 Computer Communications and Networking
+</a>
+	  </div>
+	</div>
+      </div>
+    </div>
+    <div class="container">
+      <div id="term" class="row-fluid">
+	<div class="span12">
+	  {{ do_term() }}
+	</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row-fluid">
+	<div id="sidebar" class="span3 no-print">
+	  {{ do_term() }}
+	  {% block sidebar %}
+	  {% endblock %}
+	  <div class="brand">Daniel Zappala<br><span class="title">Associate Professor</span></div>
+	  <hr>
+	  <div class="personal">
+	    <p>
+	      <a href="//plus.google.com/114449822521576560110?prsrc=3"
+		 rel="publisher" target="_top" style="text-decoration:none;">
+		<img src="//ssl.gstatic.com/images/icons/gplus-32.png"
+		     alt="Google+" style="border:0;width:32px;height:32px;margin-right:5px;"/>
+	      </a>
+	      <a href="https://twitter.com/Daniel_Zappala"><img src="/static/img/twitter.png" style="border:0;width:32px;height:32px;margin-right:5px;"></a>
+	      <a href="http://www.linkedin.com/in/danielzappala/"><img src="/static/img/linkedin.png" style="border:0;height:32px;margin-right:5px;"></a>
+	    </p>
+	    <p>daniel.zappala@gmail.com</p>
+	    <p>3361 TMCB<br>Brigham Young University<br>Provo, UT 84062</p>
+	    <p>801-422-2195</p>
+	    <hr>
+	  </div>
+	  <div id="license">
+	    <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a> 
+	    <p>&copy 2013 Daniel Zappala</p>
+	  </div>
+	</div>
+	<div class="span9">
+	  <div id="page" class="text">
+	    {% block page %}{% endblock %}
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+
+    <script src="/static/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,467 @@
+/* General */
+
+body {
+}
+
+.container {
+    width: 94%;
+    max-width: 900px;
+    margin: 0px auto;
+}
+
+/* Top Bar */
+
+#topbar {
+    background-color: #abc8e4;
+    background-color: #d1e4f6;
+    padding-top: 15px;
+    margin: 10px 0px 20px 0px;
+}
+
+.course {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.course a {
+    color: black;
+}
+
+.university {
+    font-size: 1.2em;
+    text-align: right;
+}
+
+.university a {
+    color: #333;
+}
+
+/* Menu */
+
+#term {
+    display: none;
+}
+
+#sidebar {
+    margin-top: 3px;
+    text-align: right;
+}
+
+.term {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    background-color: #990011;
+    background-color: #ee8800;
+    color: white;
+    padding: 5px;
+}
+
+.brand {
+    color: #333;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 15px;
+}
+
+.title {
+    font-weight: normal;
+    font-size: 0.8em;
+}
+
+ul.menu {
+    list-style-type: none;
+}
+
+ul.menu a {
+    color: #333;
+}
+
+ul.menu li.active {
+    font-weight: bold;
+}
+
+.btn {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0px;
+}
+
+.btn:hover, .btn:focus, .btn:active {
+    border: none;
+    outline: none;
+    background: none;
+    box-shadow: none;
+}
+
+.btn.dropdown-toggle {
+    background-color: white !important;
+    box-shadow: none !important;
+}
+
+.dropdown-menu {
+    text-align: left;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-submenu:hover>a, .dropdown-submenu:focus>a {
+    background-color: #e4e4e4;
+    background-image: none;
+    color: black;
+}
+
+/* Banner */
+
+.text {
+    font-size: 1em;
+    color: #333;
+}
+
+.banner {
+    background: #e4e4e4;
+    padding: 5px;
+}
+
+/* Front Page */
+
+
+.subtitle {
+    text-align: center;
+    font-size: 3em;
+    font-style: italic;
+    font-weight: normal;
+}
+
+/* License */
+
+#license a {
+    color: #333;
+    text-decoration: underline;
+}
+
+#license {
+    margin-top: 5px;
+}
+
+/* Calendar */
+
+.schedule {
+    margin-bottom: 10px;
+}
+
+.section {
+    font-weight: bold;
+}
+
+.day {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    margin-bottom: 5px;
+    padding: 5px;
+    font-size: 0.9em;
+}
+
+.content {
+    background-color: #e4e4e4;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.office {
+    margin-bottom: 2px;
+}
+
+.office .day {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    margin-bottom: 0px;
+    padding: 5px;
+    font-size: 0.9em;
+}
+.hours {
+    background-color: #e4e4e4;
+    padding: 5px;
+    margin-bottom: 1px;
+}
+
+
+.padded {
+    padding: 5px;
+    margin-bottom: 1px;
+}
+
+
+.assignment {
+    background-color: #990011;
+    padding: 10px;
+    color: white;
+}
+
+.assignment a {
+    color: white;
+}
+
+/* Grading */
+
+.box {
+    border: 1px solid #888;
+    height: 10px;
+    width: 10px;
+    margin-top: 3px;
+    margin-right: 5px;
+    float: left;
+}
+
+.item {
+    font-weight: bold;
+    float: left;
+}
+
+.score {
+    float: right;
+    text-align: right;
+}
+
+.criteria {
+    float: clear;
+    padding-right: 20px;
+}
+
+/* Misc */
+
+.clear {
+    clear: both;
+}
+
+h1 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 0px;
+    margin-top: 0px
+}
+
+h2 {
+    font-size: 1.2em;
+    background-color: #333;
+    color: white;
+    font-weight: normal;
+    padding: 0px 10px;
+    margin-bottom: 5px;
+}
+
+h2.banner {
+    color: black;
+}
+
+h2.plain {
+    font-size: 1.2em;
+    margin-bottom: 0px;
+    background: none;
+    padding: 0px;
+    color: black;
+}
+
+h3 {
+    font-size: 1em;
+    margin-bottom: 0px;
+}
+
+hr {
+    margin-left: 120px;
+    margin: 10px 0px 10px 120px;
+}
+
+a {
+}
+
+.top {
+    margin-top: -10px;
+}
+
+.big {
+    font-size: 1.4em;
+}
+
+.small {
+    font-size: 0.8em;
+}
+
+.indent {
+    margin-left: 30px;
+}
+
+li {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+
+.spacing li {
+    margin-top: 20px;
+}
+
+.padbottom20 {
+    margin-bottom: 20px;
+}
+
+.bottom10 {
+    padding-bottom: 10px;
+}
+
+.top15 {
+    margin-top: 15px;
+}
+
+.pad20 {
+    padding: 20px 0px;
+}
+
+.pad10 {
+    padding: 10px 0px;
+}
+
+.caption {
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.caption:before {
+    content: '\2014';
+    margin-right: 5px;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.left {
+    float: left;
+}
+
+.border {
+    border: 1px solid #888;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.pad {
+    padding: 5px;
+}
+
+.pad10 {
+    padding: 10px;
+}
+
+.pad20 {
+    padding: 20px;
+}
+
+.pad-left-10 {
+    padding-left: 10px;
+}
+
+.height-400 {
+    max-height: 400px;
+}
+
+.height-550 {
+    max-height: 535px;
+}
+
+.height-300 {
+    height: 300px;
+}
+
+.height-200 {
+    height: 200px;
+}
+
+.height-100 {
+    height: 100px;
+}
+
+.height-50 {
+    height: 50px;
+}
+
+.width-500 {
+    width: 500px;
+}
+
+.width-400 {
+    width: 400px;
+}
+
+.width-300 {
+    width: 300px;
+}
+
+.max-width-150 {
+    max-width: 150px;
+}
+
+.max-width-400 {
+    max-width: 400px;
+}
+
+.email {
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.circle {
+    display:inline-block;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background-color: #ccc;
+    background: #333;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+}
+
+pre {
+  font-size: 1em;
+}
+
+.label-success {
+}
+
+blockquote p {
+    font-size: 1em;
+}
+
+/* Printing */
+@media print {    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+    a[href]:after {
+	content: none;
+    }
+    #term {
+	display: inline;
+	font-size: 1.5em;
+	margin: 0px;
+    }
+
+    .term {
+	padding: 0px;
+    }
+
+    #topbar {
+	background-color: #abc8e4;
+	background-color: #d1e4f6;
+	margin: 0px 0px 0px 0px;
+    }
+}

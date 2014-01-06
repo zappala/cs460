@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block term %}
+<div class="term">
+Winter 2014
+</div>
+{% endblock %}
+
+{% block sidebar %}
+
+<ul class="menu">
+  <li><a href={{url_for("show",directory="winter-2014",page="")}}>Syllabus</a></li>
+  <li><a href={{url_for("show",directory="winter-2014",page="schedule")}} >Schedule</a></li>
+  <li><a href={{url_for("show",directory="winter-2014",page="officehours")}} >Office Hours</a></li>
+  <li>
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+	Homework
+	<span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+	<li><a href={{url_for("show",directory="winter-2014/homework",page="networks-and-delay")}}>Networks and Delay</a></li>
+      </ul>
+    </div>
+  </li>
+  <li>
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+	Labs
+	<span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+      </ul>
+    </div>
+  </li>
+  <li><a href="https://groups.google.com/forum/#!forum/byu-cs-460-computer-networking">Google Group</a> <i class="icon-share-alt"></i></li>
+</ul>
+
+<hr>
+
+{% endblock %}
