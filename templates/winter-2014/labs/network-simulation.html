@@ -1,0 +1,194 @@
+{% extends "winter-2014/sidebar.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Lab: Network Simulation
+
+In this lab, you will learn about network simulation using a
+packet-level, event-driven simulator.  You will use the simulator to
+setup some basic networks and verify its accuracy with respect to
+delay and loss.  You will also examine the basic queueing theory
+result that delay grows exponentially as utilization approaches 100%.
+
+## Simulator
+
+I have written a simple network simulator called
+[Bene](https://github.com/zappala/bene). This simulator includes a
+basic event scheduler, plus objects for nodes, links, and packets. The
+simulator allows you to setup basic networks with static routes and
+send packets between any pair of connected nodes.
+
+Please see the [Bene Wiki|https://github.com/zappala/bene/wiki] for
+documentation.
+
+## Two Nodes
+
+Use the simulator to setup a simple network consisting of two nodes and
+and one bidirectional link:
+
+![network](/static/img/two-nodes-one-link.png)
+
+Note that to do this in the simulator, you must create a
+unidirectional link from _n1_ to _n2_, and another one from _n2_ to
+_n1_.
+
+Using this network, test the following scenarios:
+
+1. Set the bandwidth of the links to 1 Mbps, with a propagation delay
+of 1 second. Send one packet from _n1_ to _n2_ at time 0.
+
+1. Set the bandwidth of the links to 100 bps, with a propagation delay
+of 10 ms. Send one packet from _n1_ to _n2_ at time 0. Print the time
+the packet was sent, its identifier, and the time it was received.
+
+1. Set the bandwidth of the links to 1 Mbps, with a propagation delay
+of 10 ms.  Send three packets from _n1_ to _n2_ at time 0, then one
+packet at time 2.
+
+For each scenario, print the time each packet was sent, its
+identifier, and the time it was received
+
+For this section of your report, show a screenshot of each result. By
+hand, calculate the same quantities, and show that the simulator is
+accurate.
+
+## Three Nodes
+
+Use the simulator to setup a simple network consisting of three nodes
+and two links. Using this network, test the following scenarios:
+
+1. Two fast links
+
+    ![network](/static/img/two-hop-1.png)
+
+    Node A transmits a stream of 1 kB packets to node C. How long does
+    it take to transfer a 1 MB file, divided into 1 kB packets, from A
+    to C?  Which type of delay dominates?
+
+    If both links are upgraded to a rate of 1 Gbps, how long does it
+    take to transfer a 1 MB file from A to C?
+
+2. One fast link and one slow link
+
+    ![network](/static/img/two-hop-2.png)
+
+    Node A transmits 1000 packets, each of size 1 kB, to node C. How
+    long would it does it take to transfer a 1 MB file, divided into 1
+    kB packets, from A to C?
+
+Note that 1 kB = 10<sup>3</sup> bytes and 1 MB = 10<sup>6</sup>
+bytes. These problems are the same as in the [first
+homework](http://cs460.byu.edu/winter-2014/homework/networks-and-delay),
+so you should get the same answers in both cases.
+
+For this section of your report, show a screenshot of each result. By
+hand, calculate the same quantities, and show that the simulator is
+accurate.
+
+## Queueing Theory
+
+Explore whether the simulator can validate basic queueing theory by
+varying the rate at which packets are generated and measuring the
+queueing delay for each packet. Queueing theory says that for an M/D/1
+queue, the delay should go to ininity as the utilization of the system
+goes to 1. Recall that the "M" in M/D/1 refers to an exponential
+distribution on the arrival process, the "D" refers to a deterministic
+service time, and the "1" refers to a single queue.
+
+Choose a load between 0 and 100%, run a simulation, and collect the
+results. Repeat for loads of 10% to 90%, plus 95% and 98% of the
+maximum link rate. The maximum rate is given by your packet length and
+link speed. The code in `examples/delay.py` shows how to generate
+packets with an exponential distribution.
+
+Write a Python script that parses the output files from each
+experiment and produces a bar plot of the queueing delay as a function
+of link utilization. On the same graph, plot the theoretical queueing
+delay for the link using the equation w = 1/(2μ) x ρ/(1-ρ). Your graph
+should look similar to this:
+
+![combined-box](/static/img/combined-box.png)
+
+In addition, create a line graph comparing the theoretical queueing delay
+to the average queueing delay. This graph should look similar to this:
+
+![combined-box](/static/img/combined-average.png)
+
+Your plots must use Python and matplotlib. You can use the [sample
+plotting code](https://github.com/zappala/python-plotting) as a
+starting point for plotting.
+
+For this section of your report, show the two graphs and discuss how
+well the simulator matches the theoretical result.
+
+## Report
+
+Write a formal, scientific report that has a section for each of the
+parts of the lab. Your report can be any length, as long as you
+thoroughly describe your project and results. The paper must use 11
+point type, single spacing, and one column per page.
+
+You must use LaTex to write your report. This will make it easy for
+you to include code and graphs and give them a consistent style. You
+will also be able to easily regenerate your report whenever you change
+your graphs, without having to copy and paste them each time. You can
+use [this template](https://github.com/zappala/latex-report-template)
+for your report.
+
+LaTeX is a useful publishing tool in the academic world, as it
+automatically formats a paper in many commonly-used conference and
+journal styles. If I need to send a paper to a different venue,
+changing one line in a LaTeX file will reformat the paper for
+submisison to this venue. LaTeX handles all of the formatting you
+would otherwise have to do by hand -- margins, section headings,
+placement of figures, and more. I also find it helps me to focus on
+content, rather than style, when I am writing a paper.
+
+To help you learn LaTeX, I suggest using the [WikiBooks LaTex
+reference](http://en.wikibooks.org/wiki/LaTeX).
+
+## Submission
+
+Your code and should be located in a directory called lab1 in the top level:
+
+<pre>
+bene/
+  src/
+  examples/
+  lab1/
+</pre>
+
+Turn in a tarball that includes all of your code (for the simulator,
+experiments, graphing, etc), and a PDF of your report:
+
+<pre>
+tar -czvf bene.tgz bene
+</pre>
+
+using Learning Suite.
+
+## Grading
+
+This lab is worth 100 points, and will be graded using the following rubric:
+
+* Two Nodes: 30 points, 10 points per scenario
+
+* Three Nodes: 20 points, 10 points per scenario.
+
+* Queueing Theory: 50 points.
+
+Each part will be graded on the following scale:
+
+* 50% for partial work that indicates substantial effort was made
+* 70% - 80% for C quality work
+* 80% - 90% for B quality work
+* 90% - 100% for A quality work
+
+To get full points, the report must be complete and written with a
+scientific style.
+
+{% endfilter %}
+
+{% endblock %}

@@ -21,23 +21,26 @@ def schedule():
     d.lecture('Introduction','Defining the Internet')
 
     d = s.day("January 10")
-    d.lecture('Introduction','Internet Delay, Loss, and Throughput')
+    d.lecture('Introduction','Delay, Loss, and Throughput')
     d.reading('Chapter 1.4')
+    d.reading('Delay, Loss, and Throughput',static + 'delay-loss-and-throughput.pdf')
 
     s.week()
 
     d = s.day("January 13")
     d.lecture('Lab Day')
-
+    d.reading('Lab: Network Simulation',term + 'labs/network-simulation')
     d = s.day("January 15")
     d.lecture('Introduction','Internet Architecture, Security, History')
     d.reading('Chapter 1.5 - 1.8')
+    d.reading('Internet Architecture',static + 'internet-architecture.pdf')
     d.reading('David Clark, The Design Philosophy of the DARPA Internet Protocols, ACM SIGCOMM, 1988','http://ilab.cs.byu.edu/cs460/papers/architecture/design-philosophy-sigcomm-88.pdf')
     d.reading('A Brief History of the Internet','http://www.isoc.org/internet/history/brief.shtml')
 
     d = s.day("January 17")
     d.lecture('Application Layer','Email')
     d.reading('Chapter 2.4')
+    d.reading('Email',static + 'email.pdf')
     d.assignment('Homework: Networks and Delay',term + 'homework/networks-and-delay')
 
     s.week()
@@ -51,17 +54,17 @@ def schedule():
 
     d = s.day('January 24')
     d.lecture('Application Layer','Peer-to-Peer Networking')
-#    d.assignment('Lab: ')
+    d.assignment('Lab: Network Simulation',term + 'labs/network-simulation')
 
     s.week()
 
     d = s.day('January 27')
-    d.lecture('Lab Day')
-
-    d = s.day('January 29')
     d.lecture('Transport Layer','Transport Layer and UDP')
     d.reading('Chapter 3.1 - 3.3')
 #    d.assignment('Homework #2',term + 'homework/homework2')
+
+    d = s.day('January 29')
+    d.lecture('Lab Day')
 
     d = s.day('January 31')
     d.lecture('Transport Layer','Reliable Transport Fundamentals')
