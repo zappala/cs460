@@ -55,16 +55,17 @@ def schedule():
     d = s.day('January 24')
     d.lecture('Application Layer','Peer-to-Peer Networking')
     d.assignment('Lab: Network Simulation',term + 'labs/network-simulation')
+    d.reading('Homework: Applications',term + 'homework/applications')
 
     s.week()
 
     d = s.day('January 27')
     d.lecture('Transport Layer','Transport Layer and UDP')
     d.reading('Chapter 3.1 - 3.3')
-#    d.assignment('Homework #2',term + 'homework/homework2')
 
     d = s.day('January 29')
     d.lecture('Lab Day')
+    d.assignment('Homework: Applications',term + 'homework/applications')
 
     d = s.day('January 31')
     d.lecture('Transport Layer','Reliable Transport Fundamentals')
