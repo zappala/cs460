@@ -51,6 +51,7 @@ def schedule():
     d = s.day("January 22")
     d.lecture('Application Layer','Peer-to-Peer Networking')
     d.reading('Chapter 2.6')
+    d.reading('Peer-to-Peer Networking',static + 'peer-to-peer-networking.pdf')
 
     d = s.day('January 24')
     d.lecture('Application Layer','Peer-to-Peer Networking')
@@ -62,6 +63,7 @@ def schedule():
     d = s.day('January 27')
     d.lecture('Transport Layer','Transport Layer and UDP')
     d.reading('Chapter 3.1 - 3.3')
+    d.reading('Transport Layer and UDP',static + 'transport-layer-and-udp.pdf')
 
     d = s.day('January 29')
     d.lecture('Lab Day')
@@ -69,6 +71,7 @@ def schedule():
 
     d = s.day('January 31')
     d.lecture('Transport Layer','Reliable Transport Fundamentals')
+    d.reading('TCP Reliability',static + 'tcp-reliability.pdf')
     d.reading('Chapter 3.4')
 
     s.week()
