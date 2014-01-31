@@ -66,24 +66,27 @@ def schedule():
     d.reading('Transport Layer and UDP',static + 'transport-layer-and-udp.pdf')
 
     d = s.day('January 29')
-    d.lecture('Lab Day')
+    d.reading('Chapter 3.4')
+    d.lecture('Transport Layer','Reliable Transport Fundamentals')
+    d.reading('Reliable Transport Fundamentals',static + 'reliable-transport-fundamentals.pdf')
+    d.reading('Homework: Transport Layer',term + 'homework/transport-layer')
     d.assignment('Homework: Applications',term + 'homework/applications')
 
     d = s.day('January 31')
-    d.lecture('Transport Layer','Reliable Transport Fundamentals')
+    d.lecture('Transport Layer','TCP Reliability')
     d.reading('TCP Reliability',static + 'tcp-reliability.pdf')
-    d.reading('Chapter 3.4')
 
     s.week()
 
     d = s.day('February 3')
-    d.lecture('Transport Layer','TCP Reliability')
+    d.lecture('Lab Day')
 
     d = s.day('February 5')
     d.lecture('Transport Layer','TCP Reliability')
 
     d = s.day('February 7')
     d.lecture('Transport Layer','Congestion Control')
+    d.reading('Congestion Control',static + 'congestion-control.pdf')
 
     s.week()
 
