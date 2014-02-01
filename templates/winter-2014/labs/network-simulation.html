@@ -93,16 +93,16 @@ explain how you know it is correct.
 Explore whether the simulator can validate basic queueing theory by
 varying the rate at which packets are generated and measuring the
 queueing delay for each packet. Queueing theory says that for an M/D/1
-queue, the delay should go to ininity as the utilization of the system
-goes to 1. Recall that the "M" in M/D/1 refers to an exponential
-distribution on the arrival process, the "D" refers to a deterministic
-service time, and the "1" refers to a single queue.
+queue, the delay should go to infinity as the utilization of the
+system goes to 1. Recall that the "M" in M/D/1 refers to an
+exponential distribution on the arrival process, the "D" refers to a
+deterministic service time, and the "1" refers to a single queue.
 
-Choose a load between 0 and 100%, run a simulation, and collect the
-results. Repeat for loads of 10% to 90%, plus 95% and 98% of the
-maximum link rate. The maximum rate is given by your packet length and
-link speed. The code in `examples/delay.py` shows how to generate
-packets with an exponential distribution.
+Choose a utilization between 0 and 100%, run a simulation, and collect
+the results. Repeat for utilizations of 10% to 90%, plus 95% and 98%
+of the maximum link rate. The maximum rate is given by your packet
+length and link speed. The code in `examples/delay.py` shows how to
+generate packets with an exponential distribution.
 
 Write a Python script that parses the output files from each
 experiment and produces a bar plot of the queueing delay as a function
