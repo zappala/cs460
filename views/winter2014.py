@@ -55,8 +55,8 @@ def schedule():
 
     d = s.day('January 24')
     d.lecture('Application Layer','Peer-to-Peer Networking')
-    d.assignment('Lab: Network Simulation',term + 'labs/network-simulation')
     d.reading('Homework: Applications',term + 'homework/applications')
+    d.assignment('Lab: Network Simulation',term + 'labs/network-simulation')
 
     s.week()
 
