@@ -98,7 +98,8 @@ def schedule():
     d.reading('Kevin Fall and Sally Floyd, Simulation-based Comparisons of Tahoe, Reno, and SACK TCP, ACM Computer Communications Review, Volume 26, Number 3, July, 1996','http://ilab.cs.byu.edu/cs460/papers/tcp/tcp-sack-ccr-96.pdf')
 
     d = s.day('February 14')
-    d.lecture('Lab Day')
+    d.lecture('Network Layer','The Network Layer and Routers')
+    d.assignment('Homework: Transport Layer',term + 'homework/transport-layer')
 
     s.week()
 
@@ -106,7 +107,8 @@ def schedule():
     d.lecture('No Class','Presidents Day Holiday')
 
     d = s.day('February 18')
-    d.lecture('Network Layer','The Network Layer and Routers')
+    d.lecture('Lab Day')
+    d.assignment('Lab: Reliable Transport',term + 'labs/reliable-transport')
 
     d = s.day('February 19')
     d.lecture('Network Layer','IPv4 and IPv6')
