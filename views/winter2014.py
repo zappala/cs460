@@ -100,6 +100,7 @@ def schedule():
     d.lecture('Transport Layer','Congestion Control')
     d.reading('Kevin Fall and Sally Floyd, Simulation-based Comparisons of Tahoe, Reno, and SACK TCP, ACM Computer Communications Review, Volume 26, Number 3, July, 1996','http://ilab.cs.byu.edu/cs460/papers/tcp/tcp-sack-ccr-96.pdf')
     d.assignment('Homework: Transport Layer',term + 'homework/transport-layer')
+    d.reading('Homework: Network Layer',term + 'homework/network-layer')
 
     s.week()
 
@@ -128,6 +129,7 @@ def schedule():
 
     d = s.day('February 28')
     d.lecture('Network Layer','Routing Algorithms')
+    d.reading('Routing Algorithms',static + 'routing-algorithms.pdf')
 
     s.week()
 
@@ -143,6 +145,7 @@ def schedule():
     s.week()
 
     d = s.day('March 10')
+    d.assignment('Lab: Congestion Control',term + 'labs/congestion-control')
     d.lecture('Lab Day')
 
     d = s.day('March 12')
@@ -150,6 +153,7 @@ def schedule():
 
     d = s.day('March 14')
     d.lecture('Link Layer','Switched Local Area Networks')
+    d.assignment('Homework: Network Layer',term + 'homework/network-layer')
 
     s.week()
 

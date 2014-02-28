@@ -1,0 +1,175 @@
+{% extends "winter-2014/sidebar.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Lab: Congestion Control
+
+In this lab, you will add congestion control to your reliable
+transport protocol. You will use the simulator to examine the
+correctness, performance and fairness of your implementation.
+
+## TCP Tahoe
+
+Implement congestion control using TCP Tahoe as your model. This
+should include the following features:
+
+* Slow start. At the start of the connection, or after any kind of
+  loss event, set cwnd (congestion window) to 1 MSS. Every time the
+  sender receives an ACK for new data, increment cwnd by the number of
+  new bytes of data acknowledged.
+
+* Threshold: Stop slow start when cwnd exceeds or equals the
+  threshold. Start with a threshold of 100000 bytes.
+
+* Additive Increase: Once cwnd is larger than the threshold, use
+  additive increase. Every time the sender receives an ACK for new
+  data, increment cwnd by MSS*b/cwnd, where MSS is the maximum segment
+  size (1000 bytes) and b is the number of new bytes acknowledged.
+
+* When a loss event is detected (a timeout or 3 duplicate ACKs if you have
+  implemented Fast Retransmit), then set the threshold to max(cwnd/2,MSS)
+  and set cwnd to 1 MSS.
+
+## Graphing
+
+Create scripts that can produce the following types of graphs:
+
+* The receiver's rate over time, in Kbps or Mbps, as appropriate. To
+  plot a smooth rate, calculate the rate over a moving window of 1
+  second, every 1/10 of a second. In other words, plot the rate at
+  time 2.0 for the period from 1 to 2 seconds. Then plot the rate at
+  time 2.1 for the period from 1.1 to 2.1 seconds. Do this for the
+  entire period of the TCP transfer, truncating the window as
+  appropriate at the start and end of the connection.
+
+* The queue size over time and each packet drop event. You can
+  calculate the queue size at any time by observing all packet
+  enqueue, dequeue, and drop events. Plot each drop event at the
+  maximum queue size plus 1 when the drop occurs using an "X" symbol.
+
+* The congestion window over time.
+
+* Packets transmitted over time. On the X axis, plot time. On the Y
+  axis, plot the sequence number mod 1000. Each time a packet is
+  transmitted by TCP (it is placed into the queue on the link), plot a
+  square box at the appropriate X and Y values. If the packet is
+  dropped, plot an X instead. In addition, each time TCP receives an
+  ACK, plot a dot at the appropriate X and Y values.
+
+## Experiments
+
+Use the simulator to set up a simple network consisting of two nodes and
+and one bidirectional link:
+
+![network](/static/img/two-nodes-one-link.png)
+
+Note that to do this in the simulator, you must create a
+unidirectional link from _n1_ to _n2_, and another one from _n2_ to
+_n1_.
+
+Using this network, run the following experiments:
+
+* One flow: Set the link bandwidth to 10 Mbps, the propagation delay
+  to 10 ms, and the queue size to 100000 bytes (or 100
+  packets). Transfer a 1 MB file across the link. Create
+  each of the graphs mentioned above. Use your graphs to verify that
+  the congestion control algorithm is operating as designed. The
+  receive rate over time should rapidly increase and then level out at
+  the full link bandwidth. The congestion window should show a typical
+  sawtooth pattern. The packets transmitted over time should show both
+  slow start and AIMD.
+
+* Two flows: Repeat the previous experiment, but use two TCP
+  flows. Each flow should transfer a 1 MB file and start at the same
+  time. Plot the congestion window and packets transmitted over time
+  separately for each flow to verify congestion control is working
+  properly. Plot the queue size as one graph that includes all the
+  packets for both flows. Plot the receiver's rate separately for each
+  flow but on the same graph. They should each get about half the link
+  bandwidth.
+
+* Five flows: Use the same configuration for the link, but use five
+  TCP flows. The first flow should start at time 0, the second flow
+  should start at 0.1 seconds, the third at 0.2 seconds, the fourth at
+  0.3 seconds, and the fifth at 0.4 seconds. Plot the receiver's rate
+  separately for each flow but on the same graph. The first flow
+  should start out at the full link rate but then share progressively
+  with 2, 3, then 4 other flows, each getting an equal share of the
+  link bandwidth. As the flows end, they should readjust their shares
+  fairly. Also plot the queue size over time.
+
+Write a separate Python script for each of these tests.  The script
+should output traces from your TCP implementation demonstrating that
+it works well, and it should run a diff to ensure the file is
+transferred correctly. Use the `transfer.py` script as an example.
+
+You may want to log some data required for the graphs to separate
+output files, for easier parsing and graphing.
+
+## Report
+
+Write a formal, scientific report that includes the following:
+
+* Congestion Control: Describe in detail how you implemented congestion
+    control. Use figures where appropriate.
+
+* Experiments: Describe your experiments, include your graphs, and
+  explain how these graphs show your congestion control implementation
+  is working correctly.
+
+Write using a formal, scientific report style. Your report should be
+written as if you are explaining your work to another CS student, and
+they need all of the details of what you did so that they can
+replicate your experiments.
+
+Your report can be any length, as long as you thoroughly describe your
+project and results. The paper must use 11 point type, single spacing,
+and one column per page.
+
+You must use LaTex to write your report. You can use [this
+template](https://github.com/zappala/latex-report-template) for your
+report. To help you learn LaTeX, I suggest using the [WikiBooks LaTex
+reference](http://en.wikibooks.org/wiki/LaTeX).
+
+## Submission
+
+Your code should be located in a directory called lab3 in the top level:
+
+<pre>
+bene/
+  src/
+  examples/
+  lab3/
+</pre>
+
+Turn in a tarball that includes all of your code (for the simulator,
+experiments, graphing, etc), and a PDF of your report:
+
+<pre>
+tar -czvf bene.tgz bene
+</pre>
+
+using Learning Suite.
+
+## Grading
+
+This lab is worth 150 points, and will be graded using the following rubric:
+
+* 50% for partial work that indicates substantial effort was made
+* 70% - 80% for C quality work (Congestion control works for a single flow, the report documents code well.)
+* 80% - 90% for B quality work (Congestion control partly works for multiple flows but some graphs show unexpected results.)
+* 90% - 100% for A quality work (Congestion control works for multiple flows and the graphs show the expected results.)
+* Extra 25 points for implementing Fast Recovery, which sets the
+  congestion window to 1/2 the previous value instead of 1 MSS when
+  loss is detected via duplicate ACKs.  You must be able to show Tahoe
+  style congestion control in the rest of your report, and this
+  section must use a sequence number plot to validate accuracy.
+
+To get full points, all experiments must work well and the report must
+be complete and written with a scientific style.
+
+{% endfilter %}
+
+{% endblock %}
