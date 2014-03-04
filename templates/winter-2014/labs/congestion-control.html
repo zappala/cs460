@@ -52,11 +52,11 @@ Create scripts that can produce the following types of graphs:
 * The congestion window over time.
 
 * Packets transmitted over time. On the X axis, plot time. On the Y
-  axis, plot the sequence number mod 1000. Each time a packet is
-  transmitted by TCP (it is placed into the queue on the link), plot a
-  square box at the appropriate X and Y values. If the packet is
-  dropped, plot an X instead. In addition, each time TCP receives an
-  ACK, plot a dot at the appropriate X and Y values.
+  axis, plot the sequence number divided by 1000 and mod 50. Each time
+  a packet is transmitted by TCP (it is placed into the queue on the
+  link), plot a square box at the appropriate X and Y values. If the
+  packet is dropped, plot an X instead. In addition, each time TCP
+  receives an ACK, plot a dot at the appropriate X and Y values.
 
 ## Experiments
 
