@@ -135,9 +135,11 @@ def schedule():
 
     d = s.day('March 3')
     d.lecture('Network Layer','Routing in the Internet')
+    d.reading('Routing in the Internet',static + 'routing-in-the-internet.pdf')
 
     d = s.day('March 5')
     d.lecture('Network Layer','Broadcast and Multicast Routing')
+    d.reading('Broadcast and Multicast Routing',static + 'broadcast-and-multicast-routing.pdf')
 
     d = s.day('March 7')
     d.lecture('Network Layer','Broadcast and Multicast Routing')
