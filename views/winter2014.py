@@ -147,54 +147,59 @@ def schedule():
     s.week()
 
     d = s.day('March 10')
+    d.lecture('Link Layer','Error Detection and Multiple Access')
+    d.reading('Error Detection and Multiple Access',static + 'error-detection-and-multiple-access.pdf')
     d.assignment('Lab: Congestion Control',term + 'labs/congestion-control')
-    d.lecture('Lab Day')
 
     d = s.day('March 12')
-    d.lecture('Link Layer','Error Detection and Multiple Access')
+    d.lecture('No Class','')
 
     d = s.day('March 14')
-    d.lecture('Link Layer','Switched Local Area Networks')
-    d.assignment('Homework: Network Layer',term + 'homework/network-layer')
+    d.lecture('No Class','')
 
     s.week()
 
     d = s.day('March 17')
-    d.lecture('Link Layer','MPLS, Data Center Networking, Retrospective')
+    d.assignment('Homework: Network Layer',term + 'homework/network-layer')
+    d.lecture('Lab Day')
 
     d = s.day('March 19')
-    d.lecture('Wireless Networks','Wireless and WiFi')
+    d.lecture('Link Layer','MPLS, Data Center Networking, Retrospective')
+    d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
 
     d = s.day('March 21')
-    d.lecture('Wireless Networks','Cellular Networks and Mobility')
+    d.lecture('Link Layer','Switched Local Area Networks')
+    d.reading('Switched Local Area Networks',static + 'switched-local-area-networks.pdf')
 
     s.week()
-
     d = s.day('March 24')
-    d.lecture('Wireless Networks','Cellular Networks and Mobility')
+    d.lecture('Wireless Networks','Wireless and WiFi')
 
     d = s.day('March 26')
     d.assignment('Midterm')
 
     d = s.day('March 28')
-    d.lecture('Multimedia Networks','Multimedia Applications and Streaming Video')
+    d.lecture('Wireless Networks','Cellular Networks and Mobility')
 
     s.week()
 
     d = s.day('March 31')
-    d.lecture('Multimedia Networks','Voice-Over-IP')
+    d.lecture('Wireless Networks','')
 
     d = s.day('April 2')
-    d.lecture('Multimedia Networks','Network Support for Multimedia')
-
+    d.lecture('Multimedia Networks','Multimedia Applications and Streaming Video')
     d = s.day('April 4')
-    d.lecture('Multimedia Networks','Network Support for Multimedia')
+
+    d.lecture('Multimedia Networks','Voice-Over-IP')
 
     s.week()
 
     d = s.day('April 7')
+    d.lecture('Multimedia Networks','Network Support for Multimedia')
 
     d = s.day('April 9')
+
+    d.lecture('Multimedia Networks','Network Support for Multimedia')
 
     d = s.day('April 11')
 
