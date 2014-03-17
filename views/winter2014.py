@@ -164,12 +164,12 @@ def schedule():
     d.lecture('Lab Day')
 
     d = s.day('March 19')
-    d.lecture('Link Layer','MPLS, Data Center Networking, Retrospective')
-    d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
-
-    d = s.day('March 21')
     d.lecture('Link Layer','Switched Local Area Networks')
     d.reading('Switched Local Area Networks',static + 'switched-local-area-networks.pdf')
+
+    d = s.day('March 21')
+    d.lecture('Link Layer','MPLS, Data Center Networking, Retrospective')
+    d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
 
     s.week()
     d = s.day('March 24')
@@ -185,6 +185,7 @@ def schedule():
 
     d = s.day('March 31')
     d.lecture('Wireless Networks','')
+    d.assignment('Lab: Routing',term + 'labs/routing')
 
     d = s.day('April 2')
     d.lecture('Multimedia Networks','Multimedia Applications and Streaming Video')
