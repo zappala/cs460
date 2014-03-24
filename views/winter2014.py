@@ -174,24 +174,27 @@ def schedule():
     s.week()
     d = s.day('March 24')
     d.lecture('Wireless Networks','Wireless and WiFi')
+    d.reading('Wireless and WiFi',static + 'wireless-and-wifi.pdf')
 
     d = s.day('March 26')
-    d.assignment('Midterm')
+    d.lecture('Wireless Networks','Cellular Networks and Mobility')
+    d.reading('Cellular Networks and Mobility',static + 'cellular-networks-and-mobility.pdf')
 
     d = s.day('March 28')
-    d.lecture('Wireless Networks','Cellular Networks and Mobility')
+    d.assignment('Midterm')
 
     s.week()
 
     d = s.day('March 31')
     d.lecture('Wireless Networks','')
-    d.assignment('Lab: Routing',term + 'labs/routing')
+    d.assignment('Homework: Link Layer',term + 'homework/link-layer')
 
     d = s.day('April 2')
     d.lecture('Multimedia Networks','Multimedia Applications and Streaming Video')
     d = s.day('April 4')
-
     d.lecture('Multimedia Networks','Voice-Over-IP')
+    d.assignment('Lab: Routing',term + 'labs/routing')
+
 
     s.week()
 
