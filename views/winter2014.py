@@ -191,10 +191,11 @@ def schedule():
 
     d = s.day('April 2')
     d.lecture('Multimedia Networks','Multimedia Applications and Streaming Video')
+    d.reading('Multimedia Applications and Streaming Video',static + 'multimedia-applications-and-streaming-video.pdf')
+
     d = s.day('April 4')
     d.lecture('Multimedia Networks','Voice-Over-IP')
-    d.assignment('Lab: Routing',term + 'labs/routing')
-
+    d.reading('Voice-Over-IP',static + 'voice-over-ip.pdf')
 
     s.week()
 
@@ -202,14 +203,15 @@ def schedule():
     d.lecture('Multimedia Networks','Network Support for Multimedia')
 
     d = s.day('April 9')
-
     d.lecture('Multimedia Networks','Network Support for Multimedia')
+    d.assignment('Homework: Wireless',term + 'homework/wireless')
 
     d = s.day('April 11')
 
     s.week()
 
     d = s.day('April 14')
+    d.assignment('Lab: Routing',term + 'labs/routing')
 
     d = s.day('April 19')
     d.assignment('Final Exam: 11:00am - 1:00pm')
