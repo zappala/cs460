@@ -201,6 +201,7 @@ def schedule():
 
     d = s.day('April 7')
     d.lecture('Multimedia Networks','Network Support for Multimedia')
+    d.reading('Network Support for Multimedia',static + 'network-support-for-multimedia.pdf')
 
     d = s.day('April 9')
     d.lecture('Multimedia Networks','Network Support for Multimedia')
