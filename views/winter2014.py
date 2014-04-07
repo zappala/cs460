@@ -212,6 +212,7 @@ def schedule():
     s.week()
 
     d = s.day('April 14')
+    d.assignment('Homework: Multimedia Networks',term + 'homework/multimedia-networks')
     d.assignment('Lab: Routing',term + 'labs/routing')
 
     d = s.day('April 19')
