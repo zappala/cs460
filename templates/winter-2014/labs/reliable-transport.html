@@ -46,11 +46,15 @@ following features:
   segments are ackwnowledged out of order, then the window does not
   slide.
 
+* Use a fixed timeout for retransmitting segments, which can be
+  specified as an argument to the connection when it is created.
+
+* When receiving data, use a receive buffer that can store
+  out-of-order packets. Deliver data to the application only when it is
+  in order.
+
 * Send a cumulative ACK for every packet received. Do not implement delayed
   ACKs.
-
-* Use a fixed timeout for retranmitting segments, which can be
-  specified as an argument to the connection when it is created.
 
 # Testing
 
