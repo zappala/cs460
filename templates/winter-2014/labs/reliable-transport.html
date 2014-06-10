@@ -43,22 +43,47 @@ following features:
   outstanding segments, each with 1000 bytes, from a sequential
   portion of the sending buffer. As segments are acknowledged in
   order, the window slides forward and new segments can be sent. If
-  segments are ackwnowledged out of order, then the window does not
+  segments are acknowledged out of order, then the window does not
   slide.
+
+* Send a cumulative ACK for every packet received. Do not implement delayed
+  ACKs.
 
 * Use a fixed timeout for retransmitting segments, which can be
   specified as an argument to the connection when it is created.
+
+* Keep only one retransmission timer per connection. The rules for
+  this timer are as follows: (1) Every time a segment containing data
+  is sent (including a retransmission), if the timer is not running,
+  start it running so that it will expire after RTO seconds. (2) When
+  all outstanding data has been acknowledged, turn off the
+  retransmission timer. (3) When an ACK is received that acknowledges
+  new data, restart the retransmission timer so that it will expire
+  after RTO seconds. When the retransmission timer expires, retransmit
+  the earliest segment that has not been acknowledged and restart the
+  timer so that it will expire after RTO seconds.  This is taken from
+  section 5 of [RFC 2988](http://www.ietf.org/rfc/rfc2988.txt).
+
 
 * When receiving data, use a receive buffer that can store
   out-of-order packets. Deliver data to the application only when it is
   in order.
 
-* Send a cumulative ACK for every packet received. Do not implement delayed
-  ACKs.
+* For extra credit, you may implement a dynamic retransmission timer
+  that uses an EWMA for the timer value and for the variance. In this
+  case, see the RFC cited above for details on doubling the timer value
+  when retransmitting a segment.
 
-# Testing
+* For extra credit, you may implement Fast Retransmit. In this case, a
+  loss event occurs when there are three duplicate ACKs (meaning the
+  fourth ACK in a row for the same sequence number), and TCP can
+  immediately retransmit instead of waiting for the retransmission
+  timer.  In this case, treat the loss exactly as you would a
+  retransmission timer expiration.
 
-Use the simulator to setup a simple network consisting of two nodes and
+## Testing
+
+Use the simulator to set up a simple network consisting of two nodes and
 and one bidirectional link:
 
 ![network](/static/img/two-nodes-one-link.png)
@@ -81,11 +106,11 @@ rates of 0%, 10%, 20%, and 50%.
 
 Write a separate Python script for each of these tests, where the loss
 rate is passed in on the command line. The script should output traces
-from your TCP implementation demonsrating that it works well, and it
-should run a diff to ensure the file is transfered correctly. Use the
+from your TCP implementation demonstrating that it works well, and it
+should run a diff to ensure the file is transferred correctly. Use the
 `transfer.py` script as an example.
 
-# Experiments
+## Experiments
 
 Using the same network configuration as above, set the bandwidth of
 the links to 10 Mbps, with a propagation delay of 10 ms, a queue size
@@ -98,17 +123,27 @@ average queueing delay of all segments sent.  Plot the throughput and
 the average queueing delay as a function of the window size, on two
 separate graphs.
 
-# Report
+## Report
 
 Write a report that includes the following:
 
 * Reliable Transport: Describe how you implemented reliable
-  transport. Use figures where appropriate. Describe each of your
-  tests and state which ones your code passes.
+    transport. Use figures where appropriate. Describe each of your
+    tests and state which ones your code passes.
+
+    If you implemented a dynamic retransmission timer for extra credit,
+    show proof that it works as designed. Show how the timer converges
+    to the right value over time, and how exponential backoff
+    works. Include debugging output to validate the correct behavior.
+
+    If you implemented Fast Retransmit, show proof that it works as
+    designed.  Show how the packet is retransmitted before the
+    retransmission timer expires, and show how this decreases the total
+    time to transmit the file.
 
 * Experiments: Describe your experiments, include your graphs, and
-  explain how the throughput and queueing dleay vary as the window
-  size increases.
+    explain how the throughput and queueing delay vary as the window
+    size increases.
 
 Write using a formal, scientific report style. Your report should be
 written as if you are explaining your work to another CS student, and
@@ -152,6 +187,8 @@ This lab is worth 200 points, and will be graded using the following rubric:
 * 70% - 80% for C quality work
 * 80% - 90% for B quality work
 * 90% - 100% for A quality work
+* Extra 10 points for a dynamic retransmission timer that is well documented.
+* Extra 5 points for Fast Retransmit that is well documented.
 
 To get full points, all tests must pass and the report must be
 complete and written with a scientific style.

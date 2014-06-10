@@ -95,11 +95,12 @@ def schedule():
   
     d = s.day('February 12')
     d.lecture('Transport Layer','Congestion Control')
-    d.reading('Kevin Fall and Sally Floyd, Simulation-based Comparisons of Tahoe, Reno, and SACK TCP, ACM Computer Communications Review, Volume 26, Number 3, July, 1996','http://ilab.cs.byu.edu/cs460/papers/tcp/tcp-sack-ccr-96.pdf')
 
     d = s.day('February 14')
-    d.lecture('Network Layer','The Network Layer and Routers')
+    d.lecture('Transport Layer','Congestion Control')
+    d.reading('Kevin Fall and Sally Floyd, Simulation-based Comparisons of Tahoe, Reno, and SACK TCP, ACM Computer Communications Review, Volume 26, Number 3, July, 1996','http://ilab.cs.byu.edu/cs460/papers/tcp/tcp-sack-ccr-96.pdf')
     d.assignment('Homework: Transport Layer',term + 'homework/transport-layer')
+    d.reading('Homework: Network Layer',term + 'homework/network-layer')
 
     s.week()
 
@@ -107,10 +108,12 @@ def schedule():
     d.lecture('No Class','Presidents Day Holiday')
 
     d = s.day('February 18')
-    d.lecture('Lab Day')
+    d.lecture('Network Layer','The Network Layer and Routers')
+    d.reading('The Network Layer and Routers',static + 'network-layer-and-routers.pdf')
     d.assignment('Lab: Reliable Transport',term + 'labs/reliable-transport')
 
     d = s.day('February 19')
+    d.reading('IPv4 and IPv6',static + 'ipv4-and-ipv6.pdf')
     d.lecture('Network Layer','IPv4 and IPv6')
 
     d = s.day('February 21')
@@ -119,21 +122,24 @@ def schedule():
     s.week()
 
     d = s.day('February 24')
-    d.lecture('Network Layer','IPv4 and IPv6')
+    d.lecture('Lab Day')
 
     d = s.day('February 26')
     d.assignment('Midterm')
 
     d = s.day('February 28')
     d.lecture('Network Layer','Routing Algorithms')
+    d.reading('Routing Algorithms',static + 'routing-algorithms.pdf')
 
     s.week()
 
     d = s.day('March 3')
     d.lecture('Network Layer','Routing in the Internet')
+    d.reading('Routing in the Internet',static + 'routing-in-the-internet.pdf')
 
     d = s.day('March 5')
     d.lecture('Network Layer','Broadcast and Multicast Routing')
+    d.reading('Broadcast and Multicast Routing',static + 'broadcast-and-multicast-routing.pdf')
 
     d = s.day('March 7')
     d.lecture('Network Layer','Broadcast and Multicast Routing')
@@ -141,58 +147,73 @@ def schedule():
     s.week()
 
     d = s.day('March 10')
-    d.lecture('Lab Day')
+    d.lecture('Link Layer','Error Detection and Multiple Access')
+    d.reading('Error Detection and Multiple Access',static + 'error-detection-and-multiple-access.pdf')
+    d.assignment('Lab: Congestion Control',term + 'labs/congestion-control')
 
     d = s.day('March 12')
-    d.lecture('Link Layer','Error Detection and Multiple Access')
+    d.lecture('No Class','')
 
     d = s.day('March 14')
-    d.lecture('Link Layer','Switched Local Area Networks')
+    d.lecture('No Class','')
 
     s.week()
 
     d = s.day('March 17')
-    d.lecture('Link Layer','MPLS, Data Center Networking, Retrospective')
+    d.assignment('Homework: Network Layer',term + 'homework/network-layer')
+    d.lecture('Lab Day')
 
     d = s.day('March 19')
-    d.lecture('Wireless Networks','Wireless and WiFi')
+    d.lecture('Link Layer','Switched Local Area Networks')
+    d.reading('Switched Local Area Networks',static + 'switched-local-area-networks.pdf')
 
     d = s.day('March 21')
-    d.lecture('Wireless Networks','Cellular Networks and Mobility')
+    d.lecture('Link Layer','MPLS, Data Center Networking, Retrospective')
+    d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
 
     s.week()
-
     d = s.day('March 24')
-    d.lecture('Wireless Networks','Cellular Networks and Mobility')
+    d.lecture('Wireless Networks','Wireless and WiFi')
+    d.reading('Wireless and WiFi',static + 'wireless-and-wifi.pdf')
 
     d = s.day('March 26')
-    d.assignment('Midterm')
+    d.lecture('Wireless Networks','Cellular Networks and Mobility')
+    d.reading('Cellular Networks and Mobility',static + 'cellular-networks-and-mobility.pdf')
 
     d = s.day('March 28')
-    d.lecture('Multimedia Networks','Multimedia Applications and Streaming Video')
+    d.assignment('Midterm')
 
     s.week()
 
     d = s.day('March 31')
-    d.lecture('Multimedia Networks','Voice-Over-IP')
+    d.lecture('Wireless Networks','')
+    d.assignment('Homework: Link Layer',term + 'homework/link-layer')
 
     d = s.day('April 2')
-    d.lecture('Multimedia Networks','Network Support for Multimedia')
+    d.lecture('Multimedia Networks','Multimedia Applications and Streaming Video')
+    d.reading('Multimedia Applications and Streaming Video',static + 'multimedia-applications-and-streaming-video.pdf')
 
     d = s.day('April 4')
-    d.lecture('Multimedia Networks','Network Support for Multimedia')
+    d.lecture('Multimedia Networks','Voice-Over-IP')
+    d.reading('Voice-Over-IP',static + 'voice-over-ip.pdf')
 
     s.week()
 
     d = s.day('April 7')
+    d.lecture('Multimedia Networks','Network Support for Multimedia')
+    d.reading('Network Support for Multimedia',static + 'network-support-for-multimedia.pdf')
 
     d = s.day('April 9')
+    d.lecture('Multimedia Networks','Network Support for Multimedia')
+    d.assignment('Homework: Wireless',term + 'homework/wireless')
 
     d = s.day('April 11')
 
     s.week()
 
     d = s.day('April 14')
+    d.assignment('Homework: Multimedia Networks',term + 'homework/multimedia-networks')
+    d.assignment('Lab: Routing',term + 'labs/routing')
 
     d = s.day('April 19')
     d.assignment('Final Exam: 11:00am - 1:00pm')
