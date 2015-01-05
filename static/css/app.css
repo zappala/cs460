@@ -1,135 +1,196 @@
 /* General */
 
 body {
+    font-family: 'Merriweather';
+    line-height: 1.2;
 }
 
-.container {
-    width: 94%;
-    max-width: 900px;
-    margin: 0px auto;
+/* Header */
+
+#header {
+    background-color: #066e95;
+    background-color: #444;
+    margin: 0px 0px 0px 0px;
+    color: white;
+    padding: 10px 10px;
 }
 
-/* Top Bar */
+#header a {
+    color: white;
+}
 
-#topbar {
-    background-color: #abc8e4;
-    background-color: #d1e4f6;
-    padding-top: 15px;
-    margin: 10px 0px 20px 0px;
+.borderright {
+    border-right: 1px solid #fff;
+    padding-right: 5px;
+    margin-right: 5px;
+}
+
+.term {
+    color: white;
 }
 
 .course {
-    font-size: 2em;
-    margin-bottom: 5px;
+    font-family: 'Source Sans Pro';
+    font-size: 1.3em;
+    padding: 0px;
+    color: white;
 }
 
 .course a {
-    color: black;
+    color: white;
 }
 
 .university {
-    font-size: 1.2em;
-    text-align: right;
+    font-family: 'Source Sans Pro';
+    font-size: 1em;
+    line-height: 2em;
+    padding: 0px;
 }
 
 .university a {
     color: #333;
 }
 
-/* Menu */
+/* Navigation */
 
-#term {
-    display: none;
-}
-
-#sidebar {
-    margin-top: 3px;
-    text-align: right;
-}
-
-.term {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    background-color: #990011;
+.top-bar {
+    margin: 0px;
+    padding-left: 10px;
+    background-color: #ffba20;
     background-color: #ee8800;
-    color: white;
-    padding: 5px;
+    background-color: #ccc21d;
+    background-color: #20bfdc;
 }
 
-.brand {
+.top-bar .title-area {
+    margin-right: 10px;
+}
+
+.title-area h1 {
+    color: white;
+    margin-top: 7px
+}
+
+.top-bar .row {
+    max-width: 62.5rem;
+}
+
+.top-bar a {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.top-bar-section ul li {
+    margin: 0px;
+    background-color: #ffba20;
+    background-color: #ee8800;
+    background-color: #ccc21d;
+    background-color: #20bfdc;
+}
+
+.top-bar-section ul li>a {
+    font-family: 'Lato';
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+    background-color: #ffba20;
+    background-color: #ee8800;
+    background-color: #ccc21d;
+    background-color: #20bfdc;
+}
+
+.top-bar-section ul li:hover:not(.has-form)>a {
+    background: #20bfdc;
+    background: #666;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+    background: #666;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+    background: #444;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button):hover {
+    background: #666;
+}
+
+.top-bar-section .dropdown li.active:not(.has-form) a:not(.button) {
+    background: #444;
+}
+
+.top-bar-section .dropdown li:not(.has-form):hover>a:not(.button) {
+    background: #444;
+}
+
+.top-bar-section .dropdown li:not(.has-form) a:not(.button) {
+    background: #444;
+}
+
+.top-bar-section .dropdown li:not(.has-form) a:not(.button):hover {
+    background: #666;
+}
+
+
+
+.contain-to-grid {
+    background: #ffba20;
+    background-color: #ee8800;
+    background-color: #ccc21d;
+    background-color: #20bfdc;
+}
+
+.top-bar.expanded .title-area {
+    background: #20bdfc;
+    background-color: #ee8800;
+    background-color: #ccc21d;
+    background-color: #20bfdc;
+    border-bottom: 1px solid #666;
+}
+
+.top-bar.expanded .toggle-topbar a {
+    color: #fff;
+}
+
+.top-bar-section .has-form {
+    background: #20bdfc;
+    background-color: #ee8800;
+    background-color: #ccc21d;
+    background-color: #20bfdc;
+}
+
+/* Footer */
+
+#footer {
+    margin-top: 20px;
+}
+
+
+/* Instructor */
+
+.instructor {
     color: #333;
     font-size: 1.2em;
-    font-weight: bold;
-    line-height: 15px;
 }
 
-.title {
-    font-weight: normal;
-    font-size: 0.8em;
+.instructor img {
+    max-width: 200px;
 }
 
-ul.menu {
-    list-style-type: none;
+.icon {
+    border:0;
+    width:32px;
+    height:32px;
+    margin-right:5px;
 }
 
-ul.menu a {
-    color: #333;
+.icons a {
+    border-bottom: none !important;
 }
 
-ul.menu li.active {
-    font-weight: bold;
-}
-
-.btn {
-    background: none;
-    border: none;
-    box-shadow: none;
-    padding: 0px;
-}
-
-.btn:hover, .btn:focus, .btn:active {
-    border: none;
-    outline: none;
-    background: none;
-    box-shadow: none;
-}
-
-.btn.dropdown-toggle {
-    background-color: white !important;
-    box-shadow: none !important;
-}
-
-.dropdown-menu {
-    text-align: left;
-}
-
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus, .dropdown-submenu:hover>a, .dropdown-submenu:focus>a {
-    background-color: #e4e4e4;
-    background-image: none;
-    color: black;
-}
-
-/* Banner */
-
-.text {
-    font-size: 1em;
-    color: #333;
-}
-
-.banner {
-    background: #e4e4e4;
-    padding: 5px;
-}
-
-/* Front Page */
-
-
-.subtitle {
-    text-align: center;
-    font-size: 3em;
-    font-style: italic;
-    font-weight: normal;
-}
 
 /* License */
 
@@ -140,6 +201,18 @@ ul.menu li.active {
 
 #license {
     margin-top: 5px;
+}
+
+/* Page */
+
+#page {
+    padding: 0px 10px;
+}
+
+#page p, #page ul {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 /* Calendar */
@@ -153,12 +226,11 @@ ul.menu li.active {
 }
 
 .day {
-    background-color: #333;
+    background-color: #444;
     color: white;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 1px;
     padding: 5px;
-    font-size: 0.9em;
 }
 
 .content {
@@ -168,17 +240,9 @@ ul.menu li.active {
 }
 
 .office {
-    margin-bottom: 2px;
+    margin-top: 20px !important;
 }
 
-.office .day {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    margin-bottom: 0px;
-    padding: 5px;
-    font-size: 0.9em;
-}
 .hours {
     background-color: #e4e4e4;
     padding: 5px;
@@ -191,16 +255,43 @@ ul.menu li.active {
     margin-bottom: 1px;
 }
 
-
-.assignment {
-    background-color: #990011;
+.tutorial {
+    background-color: #1de94a;
+    background-color: #1bc500;
+    background-color: #00a35d;
     padding: 10px;
     color: white;
 }
 
-.assignment a {
+#page .tutorial a {
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+#page .tutorial a:hover {
     color: white;
 }
+
+.assignment {
+    background-color: #ff3520;
+    background-color: #00a35d;
+    background-color: #ff2484;
+    background-color: #20bfdc;
+    background-color: #ff7a0a;
+    background-color: #ff4d4a;
+    padding: 10px;
+    color: white;
+}
+
+#page .assignment a {
+    color: white;
+    border: none;
+    border-bottom: 2px solid white;
+}
+
+#page .assignment a:hover {
+    color: white;
+ }
 
 /* Grading */
 
@@ -234,20 +325,29 @@ ul.menu li.active {
     clear: both;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato';
+}
+
 h1 {
     font-size: 1.5em;
     color: #333;
-    margin-bottom: 0px;
-    margin-top: 0px
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+#page h1 {
+    font-size: 2em;
 }
 
 h2 {
-    font-size: 1.2em;
+    font-size: 1.1em;
     background-color: #333;
     color: white;
     font-weight: normal;
-    padding: 0px 10px;
-    margin-bottom: 5px;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 h2.banner {
@@ -255,6 +355,7 @@ h2.banner {
 }
 
 h2.plain {
+    font-family: 'Merriweather';
     font-size: 1.2em;
     margin-bottom: 0px;
     background: none;
@@ -263,32 +364,27 @@ h2.plain {
 }
 
 h3 {
-    font-size: 1em;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 30px 0px 5px 0px;
+}
+
+#page a {
+    font-weight: normal;
+    color: #333;
+    border-bottom: 2px solid #ee8800;
+    border-bottom: 2px solid #066e95;
+    border-bottom: 2px solid #444;
+    text-decoration: none;
+}
+
+#page a:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+ul {
     margin-bottom: 0px;
-}
-
-hr {
-    margin-left: 120px;
-    margin: 10px 0px 10px 120px;
-}
-
-a {
-}
-
-.top {
-    margin-top: -10px;
-}
-
-.big {
-    font-size: 1.4em;
-}
-
-.small {
-    font-size: 0.8em;
-}
-
-.indent {
-    margin-left: 30px;
 }
 
 li {
@@ -301,143 +397,59 @@ li {
     margin-top: 20px;
 }
 
-.padbottom20 {
-    margin-bottom: 20px;
-}
-
-.bottom10 {
-    padding-bottom: 10px;
-}
-
-.top15 {
-    margin-top: 15px;
-}
-
-.pad20 {
-    padding: 20px 0px;
-}
-
-.pad10 {
-    padding: 10px 0px;
-}
-
-.caption {
-    font-size: 0.9em;
-    font-style: italic;
-    margin-top: 10px;
-}
-
-.caption:before {
-    content: '\2014';
-    margin-right: 5px;
-}
-
-.center {
-    text-align: center;
-}
-
-.right {
-    float: right;
-    margin-left: 20px;
-    margin-bottom: 20px;
-}
-
-.left {
-    float: left;
-}
-
-.border {
-    border: 1px solid #888;
-    padding: 5px;
-    margin-bottom: 10px;
-}
-
-.pad {
-    padding: 5px;
-}
-
-.pad10 {
-    padding: 10px;
-}
-
-.pad20 {
-    padding: 20px;
-}
-
-.pad-left-10 {
-    padding-left: 10px;
-}
-
-.height-400 {
-    max-height: 400px;
-}
-
-.height-550 {
-    max-height: 535px;
-}
-
-.height-300 {
-    height: 300px;
-}
-
-.height-200 {
-    height: 200px;
-}
-
-.height-100 {
-    height: 100px;
-}
-
-.height-50 {
-    height: 50px;
-}
-
-.width-500 {
-    width: 500px;
-}
-
-.width-400 {
-    width: 400px;
-}
-
-.width-300 {
-    width: 300px;
-}
-
-.max-width-150 {
-    max-width: 150px;
-}
-
-.max-width-400 {
-    max-width: 400px;
-}
-
-.email {
-    font-weight: bold;
-    letter-spacing: 1.5px;
-}
-
-.circle {
-    display:inline-block;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    background-color: #ccc;
-    background: #333;
-    color: white;
-    text-align: center;
-    line-height: 30px;
-}
-
 pre {
-  font-size: 1em;
+    font-family: monospace;
+    font-size: 1.1em;
+    background-color: #f8f8f8;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
 }
 
-.label-success {
+code {
+    border: none;
+    padding: none;
+    background-color: #dedede;
+}
+
+blockquote {
+    background-color: #e4e4e4;
+    padding: 10px 10px;
 }
 
 blockquote p {
     font-size: 1em;
+    margin-bottom: 0px !important;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+.height-400 {
+    max-height: 400px;
+    margin: 10px 0px;
+}
+
+@media only screen and (min-width: 64.063em) {
+    .header {
+	padding: 10px 0px;
+    }
+    .course {
+	font-size: 1.5em;
+	line-height: 2em;
+    }
+    .university {
+	font-size: 1.5em;
+	text-align: right;
+    }
+    .top-bar {
+	margin: 0px 0px 0px 0px;
+	padding-left: 0px;
+    }
+    #page {
+	padding: 0px;
+    }
 }
 
 /* Printing */
@@ -448,20 +460,5 @@ blockquote p {
     }
     a[href]:after {
 	content: none;
-    }
-    #term {
-	display: inline;
-	font-size: 1.5em;
-	margin: 0px;
-    }
-
-    .term {
-	padding: 0px;
-    }
-
-    #topbar {
-	background-color: #abc8e4;
-	background-color: #d1e4f6;
-	margin: 0px 0px 0px 0px;
     }
 }

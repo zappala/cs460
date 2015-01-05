@@ -17,8 +17,12 @@ Markdown(app)
 def show(directory,page):
     try:
         if not directory:
-            return render_template(page + '.html')
-        return render_template(directory+"/" + page + '.html')
+            return render_template(page + '.html', active='home')
+        try:
+            prev = directory.split('/')[-1]
+        except:
+            prev = None
+        return render_template(directory+"/" + page + '.html', active=page, previous=prev)
     except:
         return render_template('404.html'), 404
 
