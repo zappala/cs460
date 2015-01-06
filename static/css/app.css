@@ -276,9 +276,9 @@ body {
     background-color: #ff3520;
     background-color: #00a35d;
     background-color: #ff2484;
-    background-color: #20bfdc;
     background-color: #ff7a0a;
     background-color: #ff4d4a;
+    background-color: #20bfdc;
     padding: 10px;
     color: white;
 }
@@ -320,6 +320,10 @@ body {
 }
 
 /* Misc */
+
+.row .row {
+    margin: 0px;
+}
 
 .clear {
     clear: both;
@@ -423,6 +427,7 @@ blockquote p {
 }
 
 p {
+    font-family: 'Merriweather';
     margin-bottom: 10px;
 }
 

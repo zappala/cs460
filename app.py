@@ -1,6 +1,7 @@
 import sys
 
 from views import winter2014
+from views import winter2015
 
 from flask import Flask, render_template
 from flask_frozen import Freezer
