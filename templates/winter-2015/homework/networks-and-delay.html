@@ -1,0 +1,182 @@
+{% extends "winter-2015/menu.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Networks and Delay
+
+1. Kurose & Ross, Chapter 1, Problem P6
+
+    This elementary problem begins to explore propagation delay and
+    transmission delay, two central concepts in data
+    networking. Consider two hosts, A and B, connected by a single
+    link of rate *R* bps. Suppose that the two hosts are separated by
+    *m* meters, and suppose the propagation speed along the link is
+    *s* meters/sec. Host A is to send a packet of size *L* bits to
+    Host B.
+
+    a. Express the propagation delay, $d_{prop}$, in terms of *m* and *s*.
+
+    b. Determine the transmission time of the packet, $d_{trans}$, in terms
+    of *L* and *R*.
+
+    c. Ignoring processing and queuing delays, obtain an expression
+    for the end-to-end delay.
+
+    d. Suppose Host A begins to transmit the packet at time $t = 0$. At
+    time $t = d_{trans}$, where is the last bit of the packet?
+
+    e. Suppose $d_{prop}$ is greater than $d_{trans}$. At time $t =
+       d_{trans}$, where is the first bit of the packet?
+
+    f. Suppose $d_{prop}$ is less than $d_{trans}$. At time $t =
+       d_{trans}$, where is the first bit of the packet?
+
+    g. Suppose $s = 2.5 \times 10^8$, $L = 120$ bits, and $R = 56$
+       kbps. Find the distance *m* so that $d_{prop}$ equals
+       $d_{trans}$.
+
+1. Kurose & Ross, Chapter 1, Problem P23
+
+    Consider Figure 1.19(a):
+
+    ![network](/static/img/kurose/fig01_19a.png)
+
+    Assume that we know the bottleneck link along the path from the
+    server to the client is the first link with rate $R_s$
+    bits/sec. Suppose we send a pair of packets back to back from the
+    server to the client, and there is no other traffic on this
+    path. Assume each packet of size *L* bits, and both links have the
+    same propagation delay $d_{prop}$.
+
+    a. What is the packet inter-arrival time at the destination? That
+      is, how much time elapses from when the last bit of the first
+      packet arrives until the last bit of the second packet arrives?
+
+    b. Now assume that the second link is the bottleneck link
+      (i.e. $R_c < R_s$). Is it possible that the second packet queues
+      at the input queue of the second link? Explain. Now suppose that
+      the server sends the second packet *T* seconds after sending the
+      first packet. How large must *T* be to ensure no queueing before
+      the second link? Explain.
+
+1. Kurose & Ross, Chapter 1, Problem P25
+
+    Suppose two hosts, A and B, are separated by 20,000 kilometers and
+    are connected by a direct link of $R = 2$ Mbps. Suppose the
+    propagation speed over the link is $2.5 \times 10^8$ meters/sec.
+
+    a. Calculate the bandwidth-delay product, $R \times d_{prop}$.
+
+    b. Consider sending a file of 800,000 bits from Host A to Host
+       B. Suppose the file is sent continuously as one large
+       message. What is the maximum number of bits that will be in the
+       link at any given time?
+
+    c. Provide an interpretation of the bandwidth-delay product.
+
+    d. What is the width (in meters) of a bit in the link? Is it
+       longer than a football field?
+
+    e. Derive a general expression for the width of a bit in terms of
+       the propagation speed *s*, the transmission rate *R*, and the
+       length of the link *m*.
+
+1. Kurose & Ross, Chapter 1, Problem P26
+
+    Referring to the problem above, suppose we can modify *R*. For what
+    value of *R* is the width of a bit as long as the length of the
+    link?
+
+1. Kurose & Ross, Chapter 1, Problem P27
+
+    Consider the same problem above, but now with a link of $R = 1$ Gbps.
+
+    a. Calculate the bandwidth-delay product, $R \times d_{prop}$.
+
+    b. Consider sending a file of 800,000 bits from Host A to Host
+       B. Suppose the file is sent continuously as one big
+       message. What is the maximum number of bits that will be in the
+       link at any given time?
+
+    c. What is the width (in meters) of a bit in the link?
+
+1. Kurose & Ross, Chapter 1, Problem P31
+
+    In modern packet-switched networks, the source host segments long,
+    application-layer messages (for example, an image or a music file)
+    into smaller packets and sends the packets into the network. The
+    receiver then reassembles the packets back into the original
+    message. We refer to this process as message segmentation. The
+    figure below illustrates the end-to-end transport of a message
+    with and without message segmentation.
+
+    ![network](/static/img/kurose/fig01_24.png)		   
+
+    Consider a message that is $8 \times 10^6$ bits long that is to be sent
+    from source to destination in the figure. Suppose each link in the
+    figure is 2 Mbps. Ignore propagation, queuing, and processing
+    delays.
+
+    a. Consider sending the message from source to destination without
+       message segmentation. How long does it take to move the message
+       from the source host to the first packet switch? Keeping in
+       mind that each switch uses store-and-forward packet
+       switching, what is the total time to move the message from
+       source host to destination host?
+
+    b. Now suppose that the message is segmented into 4,000 packets,
+       with each packet being 2,000 bits long. How long does it take
+       to move the first packet from source host to the first switch?
+       When the first packet is being sent from the first switch to
+       the second switch, the second packet is being sent from the
+       source host to the first switch. At what time will the second
+       packet be fully received at the first switch?
+
+    c. How long does it take to move the file from source host to
+       destination host when message segmentation is used? Compare
+       this result with your answer in part (a) and comment.
+
+    d. Discuss the drawbacks of message segmentation.
+
+1. Use the following network and the convention that 1 kB = $10^3 bytes
+and 1 MB = $10^6$ bytes.
+
+    ![network](/static/img/two-hop-1.png)
+
+    a. Node A transmits a stream of 1 kB packets to node C. Assuming
+       no other traffic in the network, explain why there will never
+       be any queueing delay at node B.
+
+    b. Draw a diagram that represents the stream of packets over time,
+       using the example covered in class.
+
+    c. How long would it take to transfer a 1 MB file, divided into 1
+       kB packets, from A to C? Which type of delay dominates?
+
+    d. If both links are upgraded to a rate of 1 Gbps, how long would
+       it take to transfer a 1 MB file from A to C? Which type of
+       delay dominates now?
+
+1. Use the following network and the convention that 1 kB =
+$10^3$ bytes and 1 MB = $10^6$ bytes.
+
+    ![network](/static/img/two-hop-2.png)
+
+    a. Node A transmits 1000 packets, each of size 1 kB, to node
+       C. Explain why there will be queueing delay at node B.
+
+    b. Draw a diagram that represents the stream of packets over time,
+       using the example covered in class.
+
+    c. Derive a formula for the queueing delay for packet k What is
+       the largest number of packets the queue will ever hold?
+
+    d. How long would it take to transfer a 1 MB file, divided into 1
+       kB packets, from A to C? Does the queueing delay affect
+       transfer time?
+
+{% endfilter %}
+
+{% endblock %}

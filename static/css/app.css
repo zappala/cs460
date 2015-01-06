@@ -178,13 +178,14 @@ body {
 
 .instructor img {
     max-width: 200px;
+    border: none;
+    padding: 0px;
+    margin: 0px;
 }
 
-.icon {
-    border:0;
-    width:32px;
-    height:32px;
-    margin-right:5px;
+.icons i {
+    font-size: 2rem;
+    margin-right: 5px;
 }
 
 .icons a {
@@ -434,6 +435,12 @@ p {
 .height-400 {
     max-height: 400px;
     margin: 10px 0px;
+}
+
+img {
+    padding: 20px 20px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 @media only screen and (min-width: 64.063em) {
