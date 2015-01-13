@@ -17,7 +17,7 @@ def winter2015schedule():
     d.reading('Defining the Internet',static + 'defining-the-internet.pdf')
     d.reading('Homework: Networks and Delay',term + 'homework/networks-and-delay')
 
-    d = s.day("January 18")
+    d = s.day("January 8")
     d.lecture('Introduction','Delay, Loss, and Throughput')
     d.reading('Chapter 1.4')
     d.reading('Delay, Loss, and Throughput',static + 'delay-loss-and-throughput.pdf')
@@ -25,14 +25,17 @@ def winter2015schedule():
     s.week()
 
     d = s.day("January 13")
-    d.lecture('Lab Day')
-    d.reading('Lab: Network Simulation',term + 'labs/network-simulation')
-    d = s.day("January 15")
     d.lecture('Introduction','Internet Architecture, Security, History')
     d.reading('Chapter 1.5 - 1.8')
     d.reading('Internet Architecture',static + 'internet-architecture.pdf')
     d.reading('David Clark, The Design Philosophy of the DARPA Internet Protocols, ACM SIGCOMM, 1988','http://ilab.cs.byu.edu/cs460/papers/architecture/design-philosophy-sigcomm-88.pdf')
     d.reading('A Brief History of the Internet','http://www.isoc.org/internet/history/brief.shtml')
+
+    d = s.day("January 15")
+    d.lecture('Lab Day')
+    d.reading('Lab: Network Simulation',term + 'labs/network-simulation')
+
+    s.week()
 
     d = s.day("January 15")
     d.lecture('Application Layer','Email')
