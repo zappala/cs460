@@ -37,27 +37,25 @@ def winter2015schedule():
 
     s.week()
 
-    d = s.day("January 15")
+    d = s.day("January 20")
     d.lecture('Application Layer','Email')
     d.reading('Chapter 2.4')
     d.reading('Email',static + 'email.pdf')
     d.assignment('Homework: Networks and Delay',term + 'homework/networks-and-delay')
 
-    s.week()
-
-    d = s.day("January 20")
+    d = s.day("January 22")
     d.lecture('Application Layer','Peer-to-Peer Networking')
     d.reading('Chapter 2.6')
     d.reading('Peer-to-Peer Networking',static + 'peer-to-peer-networking.pdf')
 
-    d = s.day('January 22')
+    s.week()
+
+    d = s.day('January 27')
     d.lecture('Application Layer','Peer-to-Peer Networking')
     d.reading('Homework: Applications',term + 'homework/applications')
     d.assignment('Lab: Network Simulation',term + 'labs/network-simulation')
 
-    s.week()
-
-    d = s.day('January 27')
+    d = s.day('January 29')
     d.lecture('Transport Layer','Transport Layer and UDP and Reliable Transport Fundamentals')
     d.reading('Chapter 3.1 - 3.4')
     d.reading('Transport Layer and UDP',static + 'transport-layer-and-udp.pdf')
@@ -65,14 +63,11 @@ def winter2015schedule():
     d.reading('Homework: Transport Layer',term + 'homework/transport-layer')
     d.assignment('Homework: Applications',term + 'homework/applications')
 
-    d = s.day('January 29')
-    d.lecture('Transport Layer','TCP Reliability')
-    d.reading('TCP Reliability',static + 'tcp-reliability.pdf')
-
     s.week()
 
     d = s.day('February 3')
-    d.lecture('Lab Day')
+    d.lecture('Transport Layer','TCP Reliability')
+    d.reading('TCP Reliability',static + 'tcp-reliability.pdf')
 
     d = s.day('February 5')
     d.lecture('Transport Layer','Congestion Control')
