@@ -67,9 +67,11 @@ def winter2015schedule():
 
     d = s.day('February 3')
     d.lecture('Transport Layer','TCP Reliability')
+    d.reading('Chapter 3.5')
     d.reading('TCP Reliability',static + 'tcp-reliability.pdf')
 
     d = s.day('February 5')
+    d.reading('Chapter 3.6 - 3.7')
     d.lecture('Transport Layer','Congestion Control')
     d.reading('Congestion Control',static + 'congestion-control.pdf')
 
@@ -91,9 +93,8 @@ def winter2015schedule():
 
     d = s.day('February 19')
     d.lecture('Network Layer','The Network Layer and Routers')
+    d.reading('Chapter 4.1 - 4.3')
     d.reading('The Network Layer and Routers',static + 'network-layer-and-routers.pdf')
-    d.reading('IPv4 and IPv6',static + 'ipv4-and-ipv6.pdf')
-    d.lecture('Network Layer','IPv4 and IPv6')
     d.assignment('Lab: Reliable Transport',term + 'labs/reliable-transport')
 
 
@@ -103,23 +104,27 @@ def winter2015schedule():
     d.assignment('Midterm')
 
     d = s.day('February 26')
-    d.lecture('Network Layer','Routing Algorithms')
-    d.reading('Routing Algorithms',static + 'routing-algorithms.pdf')
+    d.lecture('Network Layer','IPv4 and IPv6')
+    d.reading('Chapter 4.4')
+    d.reading('IPv4 and IPv6',static + 'ipv4-and-ipv6.pdf')
 
     s.week()
 
     d = s.day('March 3')
-    d.lecture('Network Layer','Routing in the Internet')
+    d.lecture('Network Layer','Routing')
+    d.reading('Chapter 4.5 - 4.6')
     d.reading('Routing in the Internet',static + 'routing-in-the-internet.pdf')
 
     d = s.day('March 5')
     d.lecture('Network Layer','Broadcast and Multicast Routing')
+    d.reading('Chapter 4.7')
     d.reading('Broadcast and Multicast Routing',static + 'broadcast-and-multicast-routing.pdf')
 
     s.week()
 
     d = s.day('March 10')
     d.lecture('Link Layer','Error Detection and Multiple Access')
+    d.reading('Chapter 5.1 - 5.3')
     d.reading('Error Detection and Multiple Access',static + 'error-detection-and-multiple-access.pdf')
     d.assignment('Lab: Congestion Control',term + 'labs/congestion-control')
 
@@ -130,20 +135,24 @@ def winter2015schedule():
 
     d = s.day('March 17')
     d.lecture('Link Layer','Switched Local Area Networks')
+    d.reading('Chapter 5.4')
     d.reading('Switched Local Area Networks',static + 'switched-local-area-networks.pdf')
     d.assignment('Homework: Network Layer',term + 'homework/network-layer')
 
     d = s.day('March 19')
     d.lecture('Link Layer','MPLS, Data Center Networking, Retrospective')
+    d.reading('Chapter 5.5 - 5.7')
     d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
 
     s.week()
     d = s.day('March 24')
     d.lecture('Wireless Networks','Wireless and WiFi')
+    d.reading('Chapter 6.1 - 6.3')
     d.reading('Wireless and WiFi',static + 'wireless-and-wifi.pdf')
 
     d = s.day('March 26')
     d.lecture('Wireless Networks','Cellular Networks and Mobility')
+    d.reading('Chapter 6.4 - 6.8')
     d.reading('Cellular Networks and Mobility',static + 'cellular-networks-and-mobility.pdf')
     d.assignment('Homework: Link Layer',term + 'homework/link-layer')
 
@@ -153,6 +162,7 @@ def winter2015schedule():
     d.assignment('Midterm')
 
     d = s.day('April 2')
+    d.reading('Chapter 7.1 - 7.2')
     d.lecture('Multimedia Networks','Multimedia Applications and Streaming Video')
     d.reading('Multimedia Applications and Streaming Video',static + 'multimedia-applications-and-streaming-video.pdf')
 
@@ -160,10 +170,12 @@ def winter2015schedule():
 
     d = s.day('April 7')
     d.lecture('Multimedia Networks','Voice-Over-IP')
+    d.reading('Chapter 7.3')
     d.reading('Voice-Over-IP',static + 'voice-over-ip.pdf')
 
     d = s.day('April 9')
     d.lecture('Multimedia Networks','Network Support for Multimedia')
+    d.reading('Chapter 7.4 - 7.5')
     d.assignment('Homework: Wireless',term + 'homework/wireless')
 
     s.week()
