@@ -41,6 +41,9 @@ def winter2015schedule():
     d.lecture('Application Layer','Email')
     d.reading('Chapter 2.4')
     d.reading('Email',static + 'email.pdf')
+    d.reading("Understanding the Domain Registration Behavior of Spammers (optional)","http://conferences.sigcomm.org/imc/2013/papers/imc247-haoA.pdf")
+    d.reading('The Long "Taile" of Typosquatting Domain Names (optional, domains)',"https://www.usenix.org/conference/usenixsecurity14/technical-sessions/presentation/szurdi")
+    d.reading("Understanding the Dark Side of Domain Parking (optional, domains)","https://www.usenix.org/conference/usenixsecurity14/technical-sessions/presentation/alrwais")
     d.assignment('Homework: Networks and Delay',term + 'homework/networks-and-delay')
 
     d = s.day("January 22")
