@@ -65,7 +65,7 @@ You should implement the following for the **sender**:
   section 5 of [RFC 2988](http://www.ietf.org/rfc/rfc2988.txt).
 
 
-You should implement the follwoing for the **receiver**:
+You should implement the following for the **receiver**:
 
 * When receiving data, use a receive buffer that can store
   out-of-order packets. Deliver data to the application only when it
@@ -88,7 +88,7 @@ the window is the sequence number of the first byte in the buffer. The
 been sent. Everything between the *base* and *next* is data that has
 been sent and not yet ACKed. The *last* value is the sequence number
 for the last byte in the buffer. Use the *put()* method to add data to
-the buffer, and the *get()* method to ermove data from the buffer. use
+the buffer, and the *get()* method to remove data from the buffer. use
 the *resend()* method to get data that needs to be resent. Use the
 *slide()* method when ACKing data that has arrived in order.
 
