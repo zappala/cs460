@@ -87,12 +87,12 @@ def winter2015schedule():
     d = s.day('February 12')
     d.lecture('Transport Layer','Congestion Control')
     d.reading('Kevin Fall and Sally Floyd, Simulation-based Comparisons of Tahoe, Reno, and SACK TCP, ACM Computer Communications Review, Volume 26, Number 3, July, 1996','http://ilab.cs.byu.edu/cs460/papers/tcp/tcp-sack-ccr-96.pdf')
-    d.assignment('Lab: Reliable Transport',term + 'labs/reliable-transport')
 
     s.week()
 
     d = s.day('February 17')
     d.lecture('No Class','Monday Instruction')
+    d.assignment('Lab: Reliable Transport',term + 'labs/reliable-transport')
 
     d = s.day('February 19')
     d.lecture('Network Layer','The Network Layer and Routers')
