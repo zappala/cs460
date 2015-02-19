@@ -100,17 +100,18 @@ def winter2015schedule():
     d.reading('The Network Layer and Routers',static + 'network-layer-and-routers.pdf')
     d.assignment('Homework: Transport Layer',term + 'homework/transport-layer')
     d.reading('Homework: Network Layer',term + 'homework/network-layer')
+    d.reading('Lab: Congestion Control Part 1',term + 'labs/congestion-control-part-1')
 
 
     s.week()
 
     d = s.day('February 24')
-    d.assignment('Midterm')
-
-    d = s.day('February 26')
     d.lecture('Network Layer','IPv4 and IPv6')
     d.reading('Chapter 4.4')
     d.reading('IPv4 and IPv6',static + 'ipv4-and-ipv6.pdf')
+
+    d = s.day('February 26')
+    d.assignment('Midterm')
 
     s.week()
 
@@ -123,6 +124,8 @@ def winter2015schedule():
     d.lecture('Network Layer','Broadcast and Multicast Routing')
     d.reading('Chapter 4.7')
     d.reading('Broadcast and Multicast Routing',static + 'broadcast-and-multicast-routing.pdf')
+    d.assignment('Lab: Congestion Control Part 1',term + 'labs/congestion-control-part-1')
+    d.reading('Lab: Congestion Control Part 2',term + 'labs/congestion-control-part-2')
 
     s.week()
 
@@ -130,35 +133,35 @@ def winter2015schedule():
     d.lecture('Link Layer','Error Detection and Multiple Access')
     d.reading('Chapter 5.1 - 5.3')
     d.reading('Error Detection and Multiple Access',static + 'error-detection-and-multiple-access.pdf')
-    d.assignment('Lab: Congestion Control',term + 'labs/congestion-control')
 
     d = s.day('March 12')
-    d.lecture('No Class','')
-
-    s.week()
-
-    d = s.day('March 17')
     d.lecture('Link Layer','Switched Local Area Networks')
     d.reading('Chapter 5.4')
     d.reading('Switched Local Area Networks',static + 'switched-local-area-networks.pdf')
     d.assignment('Homework: Network Layer',term + 'homework/network-layer')
 
-    d = s.day('March 19')
+    s.week()
+
+    d = s.day('March 17')
     d.lecture('Link Layer','MPLS, Data Center Networking, Retrospective')
     d.reading('Chapter 5.5 - 5.7')
     d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
 
-    s.week()
-    d = s.day('March 24')
+    d = s.day('March 19')
     d.lecture('Wireless Networks','Wireless and WiFi')
     d.reading('Chapter 6.1 - 6.3')
     d.reading('Wireless and WiFi',static + 'wireless-and-wifi.pdf')
+    d.assignment('Lab: Congestion Control Part 2',term + 'labs/congestion-control-part-2')
 
-    d = s.day('March 26')
+    s.week()
+    d = s.day('March 24')
     d.lecture('Wireless Networks','Cellular Networks and Mobility')
     d.reading('Chapter 6.4 - 6.8')
     d.reading('Cellular Networks and Mobility',static + 'cellular-networks-and-mobility.pdf')
     d.assignment('Homework: Link Layer',term + 'homework/link-layer')
+
+    d = s.day('March 26')
+    d.lecture('TBD')
 
     s.week()
 
