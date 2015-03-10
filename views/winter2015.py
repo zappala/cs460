@@ -118,6 +118,7 @@ def winter2015schedule():
     d = s.day('March 3')
     d.lecture('Network Layer','Routing')
     d.reading('Chapter 4.5 - 4.6')
+    d.reading('Routing Algorithms',static + 'routing-algorithms.pdf')
     d.reading('Routing in the Internet',static + 'routing-in-the-internet.pdf')
 
     d = s.day('March 5')
