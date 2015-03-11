@@ -139,7 +139,6 @@ def winter2015schedule():
     d.lecture('Link Layer','Switched Local Area Networks')
     d.reading('Chapter 5.4')
     d.reading('Switched Local Area Networks',static + 'switched-local-area-networks.pdf')
-    d.assignment('Homework: Network Layer',term + 'homework/network-layer')
 
     s.week()
 
@@ -147,6 +146,7 @@ def winter2015schedule():
     d.lecture('Link Layer','MPLS, Data Center Networking, Retrospective')
     d.reading('Chapter 5.5 - 5.7')
     d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
+    d.assignment('Homework: Network Layer',term + 'homework/network-layer')
 
     d = s.day('March 19')
     d.lecture('Wireless Networks','Wireless and WiFi')
