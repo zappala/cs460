@@ -116,53 +116,55 @@ def winter2015schedule():
     s.week()
 
     d = s.day('March 3')
+    d.lecture('Network Layer','IPv4 and IPv6')
+
+    d = s.day('March 5')
     d.lecture('Network Layer','Routing')
     d.reading('Chapter 4.5 - 4.6')
     d.reading('Routing Algorithms',static + 'routing-algorithms.pdf')
     d.reading('Routing in the Internet',static + 'routing-in-the-internet.pdf')
-
-    d = s.day('March 5')
-    d.lecture('Network Layer','Broadcast and Multicast Routing')
-    d.reading('Chapter 4.7')
-    d.reading('Broadcast and Multicast Routing',static + 'broadcast-and-multicast-routing.pdf')
     d.assignment('Lab: Congestion Control Part 1',term + 'labs/congestion-control-part-1')
     d.reading('Lab: Congestion Control Part 2',term + 'labs/congestion-control-part-2')
 
     s.week()
 
     d = s.day('March 10')
-    d.lecture('Link Layer','Error Detection and Multiple Access')
-    d.reading('Chapter 5.1 - 5.3')
-    d.reading('Error Detection and Multiple Access',static + 'error-detection-and-multiple-access.pdf')
+    d.lecture('Network Layer','Broadcast and Multicast Routing')
+    d.reading('Chapter 4.7')
+    d.reading('Broadcast and Multicast Routing',static + 'broadcast-and-multicast-routing.pdf')
 
     d = s.day('March 12')
-    d.lecture('Link Layer','Switched Local Area Networks')
-    d.reading('Chapter 5.4')
-    d.reading('Switched Local Area Networks',static + 'switched-local-area-networks.pdf')
+    d.lecture('Network Layer','Broadcast and Multicast Routing')
 
     s.week()
 
     d = s.day('March 17')
-    d.lecture('Link Layer','MPLS, Data Center Networking, Retrospective')
-    d.reading('Chapter 5.5 - 5.7')
-    d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
+    d.lecture('Link Layer','Error Detection and Multiple Access')
+    d.reading('Chapter 5.1 - 5.3')
+    d.reading('Error Detection and Multiple Access',static + 'error-detection-and-multiple-access.pdf')
     d.assignment('Homework: Network Layer',term + 'homework/network-layer')
 
     d = s.day('March 19')
+    d.lecture('Link Layer','Switched Local Area Networks, MPLS, Data Center Networking, Retrospective')
+    d.reading('Chapter 5.4 - 5.7')
+    d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
+    d.reading('Switched Local Area Networks',static + 'switched-local-area-networks.pdf')
+
+
+    s.week()
+    d = s.day('March 24')
     d.lecture('Wireless Networks','Wireless and WiFi')
     d.reading('Chapter 6.1 - 6.3')
     d.reading('Wireless and WiFi',static + 'wireless-and-wifi.pdf')
     d.assignment('Lab: Congestion Control Part 2',term + 'labs/congestion-control-part-2')
 
-    s.week()
-    d = s.day('March 24')
+
+    d = s.day('March 26')
     d.lecture('Wireless Networks','Cellular Networks and Mobility')
     d.reading('Chapter 6.4 - 6.8')
     d.reading('Cellular Networks and Mobility',static + 'cellular-networks-and-mobility.pdf')
     d.assignment('Homework: Link Layer',term + 'homework/link-layer')
 
-    d = s.day('March 26')
-    d.lecture('TBD')
 
     s.week()
 
