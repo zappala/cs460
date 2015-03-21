@@ -149,14 +149,13 @@ def winter2015schedule():
     d.reading('Chapter 5.4 - 5.7')
     d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
     d.reading('Switched Local Area Networks',static + 'switched-local-area-networks.pdf')
-
+    d.assignment('Lab: Congestion Control Part 2',term + 'labs/congestion-control-part-2')
 
     s.week()
     d = s.day('March 24')
     d.lecture('Wireless Networks','Wireless and WiFi')
     d.reading('Chapter 6.1 - 6.3')
     d.reading('Wireless and WiFi',static + 'wireless-and-wifi.pdf')
-    d.assignment('Lab: Congestion Control Part 2',term + 'labs/congestion-control-part-2')
 
 
     d = s.day('March 26')
