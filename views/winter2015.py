@@ -156,7 +156,7 @@ def winter2015schedule():
     d.lecture('Wireless Networks','Wireless and WiFi')
     d.reading('Chapter 6.1 - 6.3')
     d.reading('Wireless and WiFi',static + 'wireless-and-wifi.pdf')
-
+    d.reading('Lab: Routing',term + 'labs/routing')
 
     d = s.day('March 26')
     d.lecture('Wireless Networks','Cellular Networks and Mobility')

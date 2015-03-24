@@ -1,0 +1,154 @@
+{% extends "winter-2015/menu.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Lab: Routing
+
+In this lab you will implement a distance vector routing protocol for
+Bene, so that it can dynamically route packets across an arbitrary
+network of simulated nodes. You will use the simulator to examine the
+correctness and performance of your implementation.
+
+## Distance Vector Routing
+
+Simulate a distance vector routing protocol running on each node. It should
+include the following features:
+
+* Each node should start out knowing only about itself. 
+
+* Nodes should communicate with their neighbors using broadcast packets
+  with a TTL of 1, so they are sent only to their neighbors.
+
+* Nodes periodically send a distance vector to their neighbors using
+  broadcast. The distance vector lists the currently known destinations
+  (starting out with only the node itself), and the shortest distance to
+  each destination. A node stores the latest distance vector from each
+  of its neigbors.
+
+* Upon receiving a distance vector from a neighbor, a node examines
+  each destination and compares its current best distance to the one
+  received from its neighbor, plus one. If the neighbor's distance
+  plus one is less than its current best distance, it records the new
+  best distance and marks this neighbor as the next hop to the
+  destination.
+
+* Whenever the next hop changes for a destination, the node updates its
+  forwarding table entry for that destination.
+
+## Implementation Help
+
+The following are some tips for implementing a routing protocol in the
+Bene simulator.
+
+* To send a broadcast packet, use a destination address of zero (0).
+
+* The routing protocol should run as an application, similar to the
+  application you setup to receive TCP packets. The routing protocol
+  should be configured to handle broadcast packets that use the
+  "dvrouting" protocol type in the header. The example script
+  `broadcast.py` shows how to do this with a handler that receives
+  packets for the "broadcast" protocol type.
+
+* Your routing protocol should detect a failed link if it fails to
+  receive a routing update three times in a row. So if you set your
+  protocol to exchange routing messages once every thirty seconds,
+  then 90 seconds without an update indicates a failed link to that
+  neighbor.
+
+* To simulate a link failure, see the example in `simple.py`, which
+  shows how to take a link down and then bring it back up.
+
+## Experiments
+
+To demonstrate that your routing protocol works, you should run
+experiments showing:
+
+* A simple line of five nodes in a row, and packets can be sent from
+  any node to any other node.
+
+* A ring of five nodes, and packets can be sent from any node to any
+  other node, with shortest paths always being used. Take a link down
+  and show that the routes adjust accordingly.
+
+* A general mesh of 15 nodes, with various packets being forwarded
+  correctly. Take a link down, show the routes change, and then put
+  the link back up and show the routes go back.
+
+* An example of a counting-to-infinity problem. You do not need to
+  solve it with poison reverse.
+
+For each of these examples, show a trace of the routing protocol so
+that you can demonstrate how it works, plus a trace of the nodes as
+they forward a packet correctly. Your trace should have the minimal
+information needed to show this functionality.
+
+In addition show the following:
+
+* The general mesh of 15 nodes, with TCP operating between an
+arbitrary pair of nodes with multiple hops between them. Show the TCP
+rate graph and the congestion window graph.
+
+## Report
+
+Write a formal, scientific report that includes the following:
+
+* Routing Protocol: Describe in detail how you implemented the distance
+  vector routing protocol.
+
+* Experiments: Demonstrate that your routing protocol works correctly,
+  using the experiments described above.
+
+Write using a formal, scientific report style. Your report should be
+written as if you are explaining your work to another CS student, and
+they need all of the details of what you did so that they can
+replicate your experiments.
+
+Your report can be any length, as long as you thoroughly describe your
+project and results. The paper must use 11 point type, single spacing,
+and one column per page.
+
+You must use LaTex to write your report. You can use [this
+template](https://github.com/zappala/latex-report-template) for your
+report. To help you learn LaTeX, I suggest using the [WikiBooks LaTex
+reference](http://en.wikibooks.org/wiki/LaTeX).
+
+## Submission
+
+Your code should be located in a directory called lab5 in the top level:
+
+<pre>
+bene/
+  src/
+  examples/
+  lab5/
+</pre>
+
+Turn in a tarball that includes all of your code (for the simulator,
+experiments, graphing, etc), and a PDF of your report:
+
+<pre>
+tar -czvf bene.tgz bene
+</pre>
+
+using Learning Suite.
+
+## Grading
+
+This lab is worth 100 points, and will be graded with the following rubric:
+
+* 50 points: A good effort to simulate routing but it doesn't work properly.
+
+* 75 points: Routing works for some simple cases and the report does a
+  thorough job of explaining how the routing protocol works.
+
+* 100 points: All the experiments work and the report does a thorough
+  job of explaining how the routing protocol works.
+
+To get full points, all experiments must work well and the report must
+be complete and written with a scientific style.
+
+{% endfilter %}
+
+{% endblock %}
