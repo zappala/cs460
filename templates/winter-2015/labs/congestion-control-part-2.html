@@ -50,12 +50,12 @@ Using this network, run the following experiments:
 
 * Two flows: Repeat the previous experiment, but use two TCP
   flows. Each flow should transfer a 1 MB file and start at the same
-  time. Plot the congestion window and packets transmitted over time
-  separately for each flow to verify congestion control is working
-  properly. Plot the queue size as one graph that includes all the
-  packets for both flows. Plot the receiver's rate separately for each
-  flow but on the same graph. They should each get about half the link
-  bandwidth.
+  time. Plot the congestion window and a sequence plot (like in Part
+  1) over time separately for each flow to verify congestion control
+  is working properly. Plot the queue size as one graph that includes
+  all the packets for both flows. Plot the receiver's rate separately
+  for each flow but on the same graph. They should each get about half
+  the link bandwidth.
 
 * Five flows: Use the same configuration for the link, but use five
   TCP flows. The first flow should start at time 0, the second flow
@@ -106,10 +106,6 @@ TCP's behavior:
 ## Report
 
 Write a formal, scientific report that includes the following:
-
-* Congestion Control: Describe in detail how you implemented congestion
-  control. Use figures where appropriate. Do not include all your code,
-  but you may include small sections to illustrate your algorithm.
 
 * Basic Experiments: Describe your experiments, include your graphs, and
   explain what these graphs show.
