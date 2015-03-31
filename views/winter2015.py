@@ -147,8 +147,8 @@ def winter2015schedule():
     d = s.day('March 19')
     d.lecture('Link Layer','Switched Local Area Networks, MPLS, Data Center Networking, Retrospective')
     d.reading('Chapter 5.4 - 5.7')
-    d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
     d.reading('Switched Local Area Networks',static + 'switched-local-area-networks.pdf')
+    d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
     d.assignment('Lab: Congestion Control Part 2',term + 'labs/congestion-control-part-2')
 
     s.week()
