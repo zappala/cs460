@@ -176,22 +176,22 @@ def winter2015schedule():
     s.week()
 
     d = s.day('April 7')
-    d.reading('Chapter 7.1 - 7.2')
-    d.lecture('Multimedia Networks','Multimedia Applications and Streaming Video')
+    d.reading('Chapter 7.1 - 7.3')
+    d.lecture('Multimedia Networks','Multimedia Applications and Streaming Video, Voice-Over-IP')
     d.reading('Multimedia Applications and Streaming Video',static + 'multimedia-applications-and-streaming-video.pdf')
-
-    d = s.day('April 9')
-    d.lecture('Multimedia Networks','Voice-Over-IP')
-    d.reading('Chapter 7.3')
     d.reading('Voice-Over-IP',static + 'voice-over-ip.pdf')
+    
+    d = s.day('April 9')
+    d.lecture('Multimedia Networks','Network Support for Multimedia')
+    d.reading('Chapter 7.4 - 7.5')
+    d.reading('Network Support for Multimedia',static + 'network-support-for-multimedia.pdf')
     d.assignment('Homework: Wireless',term + 'homework/wireless')
 
     s.week()
 
     d = s.day('April 14')
     d.lecture('Multimedia Networks','Network Support for Multimedia')
-    d.reading('Chapter 7.4 - 7.5')
-    d.assignment('Homework: Multimedia Networks',term + 'homework/multimedia-networks')
+    d.assignment('Homework: Multimedia Networks (extra credit)',term + 'homework/multimedia-networks')
     d.assignment('Lab: Routing',term + 'labs/routing')
 
     d = s.day('April 18')
