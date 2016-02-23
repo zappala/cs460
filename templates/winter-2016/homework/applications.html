@@ -1,0 +1,90 @@
+{% extends "winter-2016/menu.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Applications
+
+1. Kurose & Ross, Chapter 2, Problem P10.
+
+    Consider a short, 10-meter link, over which a sender can transmit
+    at a rate of 150 bps in both directions. Suppose that packets
+    containing data are 100,000 bits long, and packets containing only
+    control (e.g. ACK or handshaking) are 200 bits long. Assume that
+    *N* parallel connections each get $1/N$ of the link bandwidth. Now
+    consider the HTTP protocol, and suppose that each downloaded
+    object is 100 Kbits long, and that the initial downloaded object
+    references 10 additional objects from the same sender.
+
+    a. Would parallel downloads via parallel instances of
+    non-persistent HTTP make sense in this case?
+
+    b. Now consider persistent HTTP. Do you expect significant gains
+    over the non-persistent case? Justify and explain your answer.
+
+1. Kurose & Ross, Chapter 2, Problem P11.
+
+    Consider the scenario introduced in the previous problem. Now
+    suppose that the link is shared by Bob with four other users. Bob
+    uses parallel instances of non-persistent HTTP, and the other four
+    users use non-persistent HTTP without parallel downloads.
+
+    a. Do Bob's parallel connections help him get Web pages more
+    quickly? Why or why not?
+
+    b. If all five users open five parallel instances of
+    non-persistent HTTP, then would Bob's parallel connections still
+    be beneficial? Why or why not?
+
+1. Kurose & Ross, Chapter 2, Problem P21.
+
+    Suppose that your department has a local DNS server for all
+    computers in the department. You are an ordinary user. Can you
+    determine if an external web site was likely accessed from a
+    computer in your department a couple of seconds ago? Explain.
+
+1. Kurose & Ross, Chapter 2, Problem P26.
+
+    Suppose Bob joins a BitTorrent torrent, but he does not want to
+    upload any data to other peers (so-called free-riding).
+
+    a. Bob claims that he can receive a complete copy of the file that
+    is shared by the swarm. Is Bob's claim possible? Why or why not?
+
+    b. Bob further claims that he can make his free-riding more
+    efficient by using a collection of multiple computers (with
+    distinct IP addresses) in the computer lab in his department. How
+    can he do that?
+
+1. Kurose & Ross, Chapter 2, Problem P27.
+
+    In the circular DHT example in Section 2.6.2, suppose that peer 3
+    learns that peer 5 has left. How does peer 3 update its successor
+    state information? Which peer is now its first successor? Its
+    second successor?
+
+1. Kurose & Ross, Chapter 2, Problem P28.
+
+    In the circular DHT example in section 2.6.2, suppose that a new
+    peer 6 wants to join the DHT and peer 6 initially only knows peer
+    15's IP address. What steps are taken?
+
+1. Read the article titled [The Economics of
+Spam](http://www.ingentaconnect.com/content/aea/jep/2012/00000026/00000003/art00005) by Justin M. Rao and David H. Reiley, published in The Journal of
+Economic Perspectives in 2012. You can obtain this article for free if
+you are logged in on the BYU campus. Write a short, 2 paragraph
+summary of the article that explains its major points. Then write a
+paragraph explaining and justifying your preferred solution to the
+problem of spam.
+
+1. BitTorrent uses incentives to encourage users to share the portions
+of a file they have downloaded already. What problem could this cause
+for a user who starts out without any of the file?  How could you
+solve this problem without removing incentives entirely?  Would your
+solution make it easier for free-loaders to download the file without
+ever sharing anything?
+
+{% endfilter %}
+
+{% endblock %}

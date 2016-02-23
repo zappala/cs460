@@ -1,0 +1,99 @@
+{% extends "winter-2016/menu.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Transport Layer
+
+1. Kurose & Ross, Chapter 3, Problem P4.
+
+    a. Suppose you have the following 2 bytes: 01011100 and 01100101. What
+    is the 1s complement of the sum of these 2 bytes?
+
+    b. Suppose you have the following 2 bytes: 11011010 and
+    01100101. What is the 1s compleemnt of the sum of these 2 bytes?
+
+    c. For the bytes in part (a), give an example where one bit is
+    flipped in each of the 2 bytes and yet the 1s complement doesn't
+    change.
+
+1. Kurose & Ross, Chapter 3, Problem P14.
+
+    Consider a reliable data transfer protocol that uses only negative
+    acknowledgments. Suppose the sender sends data only
+    infrequently. Why would a NAK-only protocol be preferable to a
+    protocol that uses ACKS? Why? Now suppose the sender has a lot of
+    data to send and the ned-to-end connection experiences few
+    losses. In this second case, would a NAK-only protocol be
+    preferable to a protocol that uses ACKS? Why?
+
+1. Kurose & Ross, Chapter 3, Problem P40.
+
+    ![TCP](/static/img/kurose/fig3_58.png)
+
+    Consider the figure above. Assuming TCP Reno is the protocol
+    experiencing the behavior shown above, anser the following
+    quesitons. In all cases, you should provide a short discussion
+    justifying your answer.
+
+    a. Identify the intervals of time when TCP slow start is operating.
+
+    b. Identify the intervals of time when TCP congestion avoidance is operating.
+
+    c. After the 16th transmission round, is segment loss detected by
+    a triple duplicate ACK or by a timeout?
+
+    d. After the 22nd transmission round, is segment loss detected by
+    a triple duplicate ACK or by a timeout?
+
+    e. What is the initial value of ssthresh at the first transmission round?
+
+    f. What is the value of ssthresh at the 18th transmission round?
+
+    g. What is the value of ssthresh at the 24th transmission round?
+
+    h. During what transmission round is the 70th segment sent?
+
+    i. Assuming a packet loss is detected after the 26th round by the
+    receipt of a triple duplicate ACK, what will be the values of the
+    congestion window size and of ssthresh?
+
+1. Kurose & Ross, Chapter 3, Problem P41.
+
+    ![TCP](/static/img/kurose/fig03_55.png)
+
+    Refer to the figure above, which illustrates the convergence of
+    TCP's AIMD algorithm. Suppose that instead of a multiplicative
+    decrease, TCP decreased the window size by a constant
+    amount. Would the resulting AIAD algorithm converge to an equal
+    share algorithm? Justify your answer using a diagram similar to
+    the figure.
+
+1. Kurose & Ross, Chapter 3, Problem P54.
+
+    In our discussion of TCP congestion control, we implicitly assumed
+    that the TCP sender always had data to send. Consider now the case
+    that the TCP sender sends a large amount of data and then goes
+    idle (since it has no more data to send) at $t_1$. TCP remains
+    idle for a relatively long period of time and then wants to send
+    more data at $t_2$. What are the advantages and disadvantages of
+    having TCP use the cwnd and ssthresh values from $t_1$ when
+    starting to send data at $t_2$? What alternative would you
+    recommend? Why?
+
+1. Consider TCP with a sender window size of $N$. Suppose that at time
+t, the next in-order packet the receiver is expecting has a sequence
+number of $k$. Assume that the network does not reorder messages.
+
+    a. What are the possible sets of sequence numbers inside the
+    sender's window at time $t$? Justify your answer.
+
+    b. What are all possible values of the ACK field in all possible
+    messages currently propagating back to the sender at time $t$?
+    Justify your answer.
+
+
+{% endfilter %}
+
+{% endblock %}

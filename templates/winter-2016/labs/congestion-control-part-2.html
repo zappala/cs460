@@ -1,0 +1,170 @@
+{% extends "winter-2016/menu.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Lab: Congestion Control Part 2
+
+In this lab, you will experiment with congestion control using your
+TCP implementation. You will use the simulator to examine the
+correctness, performance and fairness of your implementation.
+
+## Graphing
+
+Create scripts that can produce the following types of graphs:
+
+* The receiver's rate over time, in Kbps or Mbps, as appropriate. To
+  plot a smooth rate, calculate the rate over a moving window of 1
+  second, every 1/10 of a second. In other words, plot the rate at
+  time 2.0 for the period from 1 to 2 seconds. Then plot the rate at
+  time 2.1 for the period from 1.1 to 2.1 seconds. Do this for the
+  entire period of the TCP transfer, truncating the window as
+  appropriate at the start and end of the connection.
+
+* The queue size over time and each packet drop event. You can
+  calculate the queue size at any time by observing all packet
+  enqueue, dequeue, and drop events. Plot each drop event at the
+  maximum queue size plus 1 when the drop occurs using an "X" symbol.
+
+* The congestion window over time.
+
+## Basic Experiments
+
+Use the simulator to set up a simple network consisting of two nodes
+and and one bidirectional link:
+
+![network](/static/img/two-nodes-one-link.png)
+
+Using this network, run the following experiments:
+
+* One flow: Set the link bandwidth to 10 Mbps, the propagation delay
+  to 10 ms, and the queue size to 100000 bytes (or 100
+  packets). Transfer a 1 MB file across the link. Create each of the
+  graphs mentioned above. Use your graphs to verify that the
+  congestion control algorithm is operating as designed. The receive
+  rate over time should rapidly increase and then level out at the
+  full link bandwidth. The congestion window should show a typical
+  sawtooth pattern. A sequence plot that shows the first part of the
+  connection should show both slow start and AIMD.
+
+* Two flows: Repeat the previous experiment, but use two TCP
+  flows. Each flow should transfer a 1 MB file and start at the same
+  time. Plot the congestion window and a sequence plot (like in Part
+  1) over time separately for each flow to verify congestion control
+  is working properly. Plot the queue size as one graph that includes
+  all the packets for both flows. Plot the receiver's rate separately
+  for each flow but on the same graph. They should each get about half
+  the link bandwidth.
+
+* Five flows: Use the same configuration for the link, but use five
+  TCP flows. The first flow should start at time 0, the second flow
+  should start at 0.1 seconds, the third at 0.2 seconds, the fourth at
+  0.3 seconds, and the fifth at 0.4 seconds. Plot the receiver's rate
+  separately for each flow but on the same graph. The first flow
+  should start out at the full link rate but then share progressively
+  with 2, 3, then 4 other flows, each getting an equal share of the
+  link bandwidth. As the flows end, they should readjust their shares
+  fairly. Also plot the queue size over time.
+
+Write a separate Python script for each of these tests.  The script
+should output traces from your TCP implementation demonstrating that
+it works well, and it should run a diff to ensure the file is
+transferred correctly. Use the `transfer.py` script as an example.
+
+You may want to log some data required for the graphs to separate
+output files, for easier parsing and graphing.
+
+## Advanced Experiments
+
+Using the same network as above, run the following experiments to examine
+TCP's behavior:
+
+* AIAD: Repeat the one flow experiment, but with AIAD (additive
+  increase, additive decrease). When a loss is detected, decrease the
+  threshold by subtracting one MSS. Explain what happens to the
+  throughput and congestion window graphs. Does TCP still show stable
+  behavior?
+
+* AIMD: Repeat the one flow experiment, but with a different
+  multiplicative constant. Instead of setting the threshold to 1/2 the
+  window size when a loss event occurs, try using 5/6 the window size.
+  Explain what happens to the throughput and congestion window graphs.
+  Does TCP still show stable behavior?
+
+* Competing AIMD: Repeat the two flow experiment, but let one flow use
+  1/2 as the multiplicative constant and the other 5/6. Do they still
+  get fair shares of the bandwidth?
+
+* Competing RTT: Repeat the two flow experiment, but let one flow have
+  a 10x longer propagation delay. To do this, you will need a
+  different network, where one flow takes the path ACD and the other
+  takes the path BCD. Then set the propagation delay on the link AC to
+  be 10x the propagation delay of link BC. Do the flows still get fair
+  shares of bandwith?
+
+## Report
+
+Write a formal, scientific report that includes the following:
+
+* Basic Experiments: Describe your experiments, include your graphs, and
+  explain what these graphs show.
+
+* Advanced Experiments: Describe your experiments, include your graphs, and
+  explain what these graphs show.
+
+Write using a formal, scientific report style. Your report should be
+written as if you are explaining your work to another CS student, and
+they need all of the details of what you did so that they can
+replicate your experiments.
+
+Your report can be any length, as long as you thoroughly describe your
+project and results. The paper must use 11 point type, single spacing,
+and one column per page.
+
+You must use LaTex to write your report. You can use [this
+template](https://github.com/zappala/latex-report-template) for your
+report. To help you learn LaTeX, I suggest using the [WikiBooks LaTex
+reference](http://en.wikibooks.org/wiki/LaTeX).
+
+## Submission
+
+Your code should be located in a directory called lab4 in the top level:
+
+<pre>
+bene/
+  src/
+  examples/
+  lab4/
+</pre>
+
+Turn in a tarball that includes all of your code (for the simulator,
+experiments, graphing, etc), and a PDF of your report:
+
+<pre>
+tar -czvf bene.tgz bene
+</pre>
+
+using Learning Suite.
+
+## Grading
+
+This lab is worth 150 points, and will be graded using the following rubric:
+
+* 50% for partial work that indicates substantial effort was made
+
+* 70% - 80% for C quality work (Experimental results are partly correct but the report is well written.)
+
+* 80% - 90% for B quality work (Experimental results mostly work and the report is well written.)
+
+* 90% - 100% for A quality work (Experimental results all work and are
+well explained in the report.)
+
+To get full points, all experiments must work well and the report must
+be complete and written with a scientific style.
+
+{% endfilter %}
+
+{% endblock %}
+
+

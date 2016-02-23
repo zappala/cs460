@@ -1,0 +1,203 @@
+{% extends "winter-2016/menu.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Lab: Reliable Transport
+
+In this lab, you will write a reliable transport protocol that uses
+cumulative ACKs, sliding window, and a retransmission timer, similar
+to TCP. You will use the simulator to examine the efficiency achieved
+by different window sizes.
+
+## Simulator
+
+The [Bene](https://github.com/zappala/bene) simulator
+includes stubs for TCP, including an implementation of TCP
+buffering.
+
+## TCP
+
+Implement reliable transport using TCP as your model. The TCP code in
+the simulator is written so that no opening handshake is required; a host
+can immediately begin sending data. We will only simulate data traveling
+one way from the sender to the receiver, but the code is written so that
+you could send data in both directions.
+
+You should implement the following for the **sender**:
+
+* Add all data the application wants to send to a send buffer. Data
+  stays in the send buffer until TCP is ready to send it and is
+  removed once it is ACKed.
+
+* Use a fixed window size to limit the number of packets that can be
+  sent at one time. The window size is specified as an argument to the
+  TCP connection when it is created. Every time an ACK is received,
+  use the send buffer to send any additional packets the window
+  allows. Use a maximum segment size of 1000 bytes. Use sequence
+  numbers that count in terms of bytes.
+
+* Use a fixed, one second timer to retransmit segments that are not
+  ACKed in time. When this timer expires, only one segment should be
+  retransmitted. In addition, any data past this segment that has
+  already been transmitted is "forgotten", meaning TCP state is reset
+  and these bytes are not considered to be outstanding. Once the ACK
+  is received for this retransmitted segment, then TCP will "catch up"
+  and send the maximum data allowed by the window.
+
+* Keep only one retransmission timer per connection. The rules for
+  this timer are as follows: (1) Every time a segment containing data
+  is sent (including a retransmission), if the timer is not running,
+  start it running so that it will expire after 1 second. (2) When
+  all outstanding data has been acknowledged, turn off the
+  retransmission timer. (3) When an ACK is received that acknowledges
+  new data, restart the retransmission timer so that it will expire
+  after 1 second. When the retransmission timer expires, retransmit
+  the earliest segment that has not been acknowledged and restart the
+  timer so that it will expire after RTO seconds.  This is taken from
+  section 5 of [RFC 2988](http://www.ietf.org/rfc/rfc2988.txt).
+
+
+You should implement the following for the **receiver**:
+
+* When receiving data, use a receive buffer that can store
+  out-of-order packets. Deliver data to the application only when it
+  is in order.
+
+* Send a cumulative ACK for every packet received. The ACK number
+  represents the largest, in-order sequence number that has not yet
+  been received.  In other words, the receiver tells the sender the
+  next in-order sequence number it is expecting. Do not implement
+  delayed ACKs.
+
+The source code includes an implementation of both a send buffer
+and a receiver buffer. You should not modify this code.
+
+The send buffer implements a basic sliding window algorithm, which is
+a buffer with three values called *base*, *next*, and *last*. The
+buffer is a sequence of bytes that can be transmitetd. The *base* of
+the window is the sequence number of the first byte in the buffer. The
+*next* value is the sequence number of the next data that has not yet
+been sent. Everything between the *base* and *next* is data that has
+been sent and not yet ACKed. The *last* value is the sequence number
+for the last byte in the buffer. Use the *put()* method to add data to
+the buffer, and the *get()* method to remove data from the buffer. use
+the *resend()* method to get data that needs to be resent. Use the
+*slide()* method when ACKing data that has arrived in order.
+
+The receive buffer holds all the data that have been received, indexed
+by starting sequence number. Data may come in out of order, and the
+buffer will order them. Data may also be duplicated, and the buffer
+will remove any duplicated bytes.
+
+## Dynamic Retransmission Timer
+
+Once you have basic TCP reliability working, add a dynamic
+retransmission timer that uses an EWMA for the timer value and for the
+variance. See [RFC 2988](http://www.ietf.org/rfc/rfc2988.txt) for
+details on doubling the timer value when retransmitting a segment.
+
+## Testing
+
+Use the simulator to set up a simple network consisting of two nodes and
+and one bidirectional link:
+
+![network](/static/img/two-nodes-one-link.png)
+
+Using this network, test the following scenarios:
+
+1. Set the bandwidth of the links to 10 Mbps, with a propagation delay
+of 10 ms. Transfer the file `test.txt` from _n1_ to _n2_ using a
+window size of 3000 bytes.  Repeat this test, with loss rates of 0%,
+10%, 20%, and 50%.
+
+1. Set the bandwidth of the links to 10 Mbps, with a propagation delay
+of 10 ms. Transfer the file `internet-architecture.pdf` from _n1_ to
+_n2_ using a window size of 10000 bytes.  Repeat this test, with loss
+rates of 0%, 10%, 20%, and 50%.
+
+Write a Python script for each of these tests, where the loss
+rate is passed in on the command line. The script should output traces
+from your TCP implementation demonstrating that it works well, and it
+should run a diff to ensure the file is transferred correctly. Use the
+`transfer.py` script as an example.
+
+## Experiments
+
+Using the same network configuration as above, set the bandwidth of
+the links to 10 Mbps, with a propagation delay of 10 ms, a queue size
+of 100 and a loss rate of 0%. Transfer the `internet-architecture.pdf`
+file using window sizes of 1000, 2000, 5000, 10000, 15000, and 20000
+bytes.  Compute the throughput of the transfer as the total bits sent
+divided by the total time to send the file, measured from the start of
+the simulation to when the last segment is received. Compute the
+average queueing delay of all segments sent.  Plot the throughput and
+the average queueing delay as a function of the window size, on two
+separate graphs.
+
+## Report
+
+Write a report that includes the following:
+
+* Reliable Transport: Describe how you implemented reliable
+    transport. Use figures where appropriate. Describe each of your
+    tests and discuss the time it takes to transfer a file when using
+    a fixed timer.
+
+    Next, discuss how you implemented a dynamic retransmission timer
+    and show proof that it works as designed. Show how the timer
+    converges to the right value over time, and how exponential
+    backoff works. Include debugging output to validate the correct
+    behavior. Discuss the time it takes to transfer a file when
+    using the dynamic timer.
+
+* Experiments: Describe your experiments, include your graphs, and
+    explain how the throughput and queueing delay vary as the window
+    size increases.
+
+Write using a formal, scientific report style. Your report should be
+written as if you are explaining your work to another CS student, and
+they need all of the details of what you did so that they can
+replicate your experiments.
+
+Your report can be any length, as long as you thoroughly describe your
+project and results. The paper must use 11 point type, single spacing,
+and one column per page.
+
+Your report must match the LaTex style shown in [this
+template](https://github.com/zappala/latex-report-template).  If you
+choose to use LaTeX, I suggest using the [WikiBooks LaTex
+reference](http://en.wikibooks.org/wiki/LaTeX).
+
+## Submission
+
+Your code should be located in a directory called lab2 in the top level:
+
+<pre> bene/ src/ examples/ lab2/ </pre>
+
+You should copy tcp.py to the lab2 directory and modify it there. You
+should be sure your scripts call this tcp.py and not the one in the
+src directory. Turn in a tarball that includes all of your code (for
+the simulator, experiments, graphing, etc), and a PDF of your report:
+
+<pre> tar -czvf bene.tgz bene </pre>
+
+using Learning Suite.
+
+## Grading
+
+This lab is worth 200 points, and will be graded using the following
+rubric:
+
+* 50% for partial work that indicates substantial effort was made
+* 70% - 80% for C quality work
+* 80% - 90% for B quality work
+* 90% - 100% for A quality work
+
+To get full points, all tests must pass and the report must be
+complete and written with a scientific style.
+
+{% endfilter %}
+
+{% endblock %}
