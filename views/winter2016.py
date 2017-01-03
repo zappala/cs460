@@ -156,13 +156,13 @@ def winter2016schedule():
     d.lecture('Link Layer','Error Detection and Multiple Access')
     d.reading('Chapter 5.1 - 5.3')
     d.reading('Error Detection and Multiple Access',static + 'error-detection-and-multiple-access.pdf')
-    d.assignment('Homework: Network Layer',term + 'homework/network-layer')
     
     d = s.day('March 24')
     d.lecture('Link Layer','Switched Local Area Networks, MPLS, Data Center Networking, Retrospective')
     d.reading('Chapter 5.4 - 5.7')
     d.reading('Switched Local Area Networks',static + 'switched-local-area-networks.pdf')
     d.reading('MPLS, Data Center Networking, Retrospective',static + 'mpls-data-centers-retrospective.pdf')
+    d.assignment('Homework: Network Layer',term + 'homework/network-layer')
 
     d = s.day('March 26')    
     d.assignment('Lab: Congestion Control Part 2',term + 'labs/congestion-control-part-2')
@@ -173,7 +173,6 @@ def winter2016schedule():
     d.lecture('Wireless Networks','Wireless and WiFi')
     d.reading('Chapter 6.1 - 6.3')
     d.reading('Wireless and WiFi',static + 'wireless-and-wifi.pdf')
-    d.assignment('Homework: Link Layer',term + 'homework/link-layer')
     d.reading('Lab: Routing',term + 'labs/routing')
 
     d = s.day('April 31')
@@ -188,12 +187,13 @@ def winter2016schedule():
     d.lecture('Multimedia Networks','Multimedia Applications and Streaming Video, Voice-Over-IP')
     d.reading('Multimedia Applications and Streaming Video',static + 'multimedia-applications-and-streaming-video.pdf')
     d.reading('Voice-Over-IP',static + 'voice-over-ip.pdf')
+    d.assignment('Homework: Link Layer',term + 'homework/link-layer')
     
     d = s.day('April 7')
     d.lecture('Multimedia Networks','Network Support for Multimedia')
     d.reading('Chapter 7.4 - 7.5')
     d.reading('Network Support for Multimedia',static + 'network-support-for-multimedia.pdf')
-    d.assignment('Homework: Wireless',term + 'homework/wireless')
+    d.assignment('Homework: Wireless (extra credit)',term + 'homework/wireless')
 
     s.week()
 

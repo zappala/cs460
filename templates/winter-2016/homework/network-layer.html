@@ -1,0 +1,151 @@
+{% extends "winter-2016/menu.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Network Layer
+
+1. Kurose & Ross, Chapter 4, Problem P9.
+
+    Consider the switch shown below. Suppose that all datagrams have
+    the same fixed length, that the switch operates in a slotted,
+    synchronous manner, and that in one time slot a datagram can be
+    transferred from an input port to an output port. The switch
+    fabric is a crossbar so that at most one datagram can be
+    transferred to a given output port in a time slot, but different
+    output ports can receive datagrams from different input ports in a
+    single time slot. What is the minimal number of time slots needd
+    to transfer the packets shown from input ports to their output
+    pots, assuming any input queue scheduling order you want (i.e., it
+    need not have HOL blocking)? What is the largest number of slots
+    needed, assuming the worst-case scheduling order you can devise,
+    assuming that a non-empty input queue is never idle?
+
+    ![router](/static/img/kurose/fig04_p8.png)
+
+1. Kurose & Ross, Chapter 4, Problem P10.
+
+    Consider a datagram network using 32-bit host addresses. Suppose a
+    router has four links, numbered 0 through 3, and packets are to be
+    forwarded to the link interfaces as follows:
+
+    ![router](/static/img/kurose/fig04_p9.png)
+
+
+    a. Provide a forwarding table that has five entries, uses longest
+    prefix matching, and forwards packets to the correct link
+    interfaces.
+
+    b. Describe how your forwarding table determines the appropriate
+    link interface for datagrams with destination addresses:
+
+    11001000 10010001 01010001 01010101
+    <br>11100001 01000000 11000011 00111100
+    <br>11100001 10000000 00010001 01110111
+
+1. Kurose & Ross, Chapter 4, Problem P13.
+
+    Consider a router that interconnects three subnets: Subnet 1,
+    Subnet 2, and Subnet 3. Suppose all of the interfaces in each of
+    these three subnets are required to have the prefix
+    223.1.17/24. Also suppose that Subnet 1 is required to support at
+    least 62 interfaces, Subnet 2 is to support at least 95 interfaces, and
+    Subnet 3 is to support at least 16 interfaces. Provide three network
+    addresses (of the form a.b.c.d/x) that satisfy these constraints.
+
+1. Kurose & Ross, Chapter 4, Problem P19.
+
+    Consider sending a 2400-byte datagram into a link that has an MTU
+    of 700 bytes. Suppose the original datagram is stamped with the
+    identification number 422. How many fragments are generated? What
+    are the values in the various fields in the IP datagram(s)
+    generated related to fragmentation?
+
+1. Kurose & Ross, Chapter 4, Problem P31.
+
+    Consider the three-node topology shown below. Rather than having
+    the link costs shown in the figure, the link costs are c(x,y) = 3,
+    c(y,z) = 6, c(z,x) = 4. Compute the distance tables after the
+    initialization step and after each iteration of a synchronous
+    version of the distance-vector algorithm.
+
+    <img style="height:200px;" src="/static/img/kurose/fig04_p31.png"/>
+
+1. Kurose & Ross, Chapter 4, Problem P38.
+
+    Consider the network shown below, with BGP running as the inter-AS
+    routing protocol.  Initially suppose there is no physical link
+    between AS2 and AS4.
+
+    ![network](/static/img/kurose/fig04_p35.png)
+
+    Suppose router $1d$ learns about $x$. It will put an entry (x,I) in its forwarding table.
+
+    a. Will $I$ be equal to $I_1$ or $I_2$ for this entry? Explain why in one sentence.
+
+    b. Now suppose that there is a physical link between AS2 and AS4,
+    shown by the dotted line. Suppose router $1d$ learns that $x$ is
+    accessible via AS2 as well as via AS3. Will $I$ be set to $I_1$ or $I_2$?
+    Explain why in one sentence.
+    
+    c. Now suppose there is another AS, called AS5, which lies on the
+    path between AS2 and AS4 (not shown in diagram). Suppose router 1d
+    learns that x is accessible via AS2 AS5 AS4 as well as via AS3
+    AS4. Will $I$ be set to $I_1$ or $I_2$ ? Explain why in one sentence.
+
+1. Kurose & Ross, Chapter 4, Problem P39.
+
+    Consider the following network.
+
+    ![network](/static/img/kurose/fig04_p37.png)
+
+    ISP B provides national backbone service to regional ISP A. ISP C
+    provides national backbone service to regional ISP D. Each ISP
+    consists of one AS. B and C peer with each other in two places
+    using BGP. Consider traffic going from A to D. B would prefer to
+    hand that traffic over to C on the West Coast (so that C would
+    have to absorb the cost of carrying the traffic cross-country),
+    while C would prefer to get the traffic via its East Coast peering
+    point with B (so that B would have carried the traffic across the
+    country). What BGP mechanism might C use, so that B would hand
+    over A-to-D traffic at its East Coast peering point? To answer
+    this question, you will __not__ need to dig into the BGP
+    specification.
+
+1. Kurose & Ross, Chapter 4, Problem P47.
+
+    Consider the topology shown below. Suppose that all links have
+    unit cost and that node E is the broadcast source. Using arrows
+    like those shown in the figure, indicate links over which packets
+    will be forwarded using RPF, and links over which packets will not
+    be forwarded, given that node E is the source.
+
+    ![network](/static/img/kurose/fig04_p45.png)
+
+1. Kurose & Ross, Chapter 4, Problem P49.
+
+    Consider the topology shown below, and suppose that each link has
+    unit cost.
+
+    ![network](/static/img/kurose/fig04_p47.png)
+
+    Suppose node C is chosen as the center in a center-based multicast
+    routing algorithm. Assuming that each attached router uses its
+    least-cost path to node C to send join messages to C, draw the
+    resulting center-based routing tree. Is the resulting tree a
+    minimum-cost tree? Justify your answer.
+
+1. Kurose & Ross, Chapter 4, Problem P55.
+
+    What is the size of the multicast address space? Suppose now that
+    two multicast groups randomly choose a multicast address. What is
+    the probability that they choose the same address? Suppose now
+    that 1,000 multicast groups are ongoing at the same time and
+    choose their multicast group addresses at random. What is the
+    probability that they interfere with each other? Hint: use an
+    approximation for the birthday problem.
+
+{% endfilter %}
+
+{% endblock %}
