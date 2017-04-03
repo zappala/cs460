@@ -1,0 +1,27 @@
+1. Kurose & Ross, Chapter 4, Problem P19.
+
+Consider the SDN OpenFlow network show below. Suppose that the desired forwarding behavior for datagrams arriving at s2 is as follows:
+
+* any datagrams arriving on input port 1 from hosts h5 or h6 that are destinated to hosts h1 or h2 should be forwarded over output port 2;
+
+* any datagrams arriving on input port 2 from hosts h1 or h2 that are destined to hosts h5 or h6 should be forwarded over output port 1;
+
+* any arriving datagrams on input ports 1 or 2 and destned to hosts h3 or h4 should be deliverd to the host specified;
+
+* hosts h3 and h4 shoul dbe able to send datagrams to each other.
+
+Specify the flow table entries in s2 that implement this forwarding behavior.
+
+1. Kurose & Ross, Chapter 4, Problem P2.
+
+Consider aain the SDN OpenFlow network shown above. Suppose we want switch s2 to function as a firewall. Specify the flow table in s2
+that implements the following firewall behaviors (specify a different flow table for each of the four firewalling behaviors below) for delivery
+of datagrams destined to h3 and h4. You do not need to specify the forwarding behavior in s2 that forwards traffic to other routers.
+
+a. Only traffic arriving from hosts h1 and h5 should be delivered to hosts h3 or h4 (i.e., that arriving traffic from hosts h2 and h5 is blocked).
+
+b. Only TCP traffic is allowed to be delivered to hosts h3 or h4 (i.e., that UDP traffic is blocked).
+
+c. Only traffic destined to h3 is to be delivered (i.e. all traffic to h4 is blocked).
+
+d. Only UDP traffic from h1 and destined to h3 is to be delivered. All other traffic is blocked.

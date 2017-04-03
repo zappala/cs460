@@ -291,7 +291,29 @@ body {
 
 #page .assignment a:hover {
     color: white;
+}
+
+.due {
+    background-color: #ff3520;
+    background-color: #00a35d;
+    background-color: #ff2484;
+    background-color: #ff7a0a;
+    background-color: #ff4d4a;
+    background-color: #20bfdc;
+    padding: 10px;
+    color: white;
+}
+
+#page .due a {
+    color: white;
+    border: none;
+    border-bottom: 2px solid white;
+}
+
+#page .due a:hover {
+    color: white;
  }
+
 
 /* Grading */
 
@@ -412,8 +434,6 @@ pre {
 
 code {
     border: none;
-    padding: none;
-    background-color: #dedede;
 }
 
 blockquote {
@@ -441,6 +461,8 @@ img {
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
+
+img[alt=narrow] { width: 500px; }
 
 @media only screen and (min-width: 64.063em) {
     .header {

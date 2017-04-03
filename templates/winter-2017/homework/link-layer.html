@@ -1,0 +1,108 @@
+{% extends "winter-2017/menu.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Link Layer
+
+1. Kurose & Ross, Chapter 6, Problem P5.
+
+    Consider the 5-bit generator, G = 10011, and suppose that D has the value 1010101010. What is the value of R?
+
+1. Kurose & Ross, Chapter 6, Problem P15.
+
+    Consider the figure shown below.
+
+    ![narrow](/static/img/kurose/fig06-33.png)
+
+    a. Consider sending an IP datagram from Host E to Host F. Will
+    Host E ask router R1 to help forward the datagram? Why? In the
+    Ethernet frame containing the IP datagram, what are the source and
+    destination IP and MAC addresses?
+
+    b. Suppose E would like to send an IP datagram to B, and assume
+    that E's ARP cache does not contain B's MAC address. Will E
+    perform an ARP query to find B's MAC address? Why? In the Ehternet
+    frame (containing the IP datagram destined to B) that is delivered
+    to router R1, what are the source and destination IP and MAC
+    addresses?
+
+    c. Suppose Host A would like to send an IP datagram to Host B, and
+    neither A's ARP cache contains B's MAC address nor does B's ARP
+    cache contain A's MAC address. Further suppose that the switch
+    S1's forwarding table contains entries for Host B and router R1
+    only. Thus, A will broadcast an ARP request message. What actions
+    will switch S1 perform once it receives the ARP request message?
+    Will router R1 also receive this ARP request message? If so, will
+    R1 forward the message to Subnet 3? Once Host B receives this ARP
+    request message, it will send back to Host A an ARP response
+    message. But will it send an ARP query message to ask for A's MAC
+    address? Why? What will switch S1 do once it receives an ARP
+    response message from Host B?
+    
+1. Kurose & Ross, Chapter 6, Problem P27
+
+    In this problem, we explore the use of small packets for
+    Voice-over-IP applications. One of the drawbacks of a small packet
+    size is that a large fraction of link bandwidth is consumed by
+    overhead bytes. To this end, suppose that the packet consists of
+    *P* bytes and 5 bytes of header.
+
+    a. Consider sending a digitally encoded voice source
+    directly. Suppose the source is encoded at a constant rate of 128
+    kbps. Assume each packet is entirely filled before the source
+    sends the packet into the network. The time required to fill the
+    packet is the **packetization delay**. In terms of *L*, determine
+    the packetization delay in milliseconds.
+
+    b. Packetization delays greater than 20 msec can cause a
+    noticeable and unpleasant echo. Determine the packetization delay
+    for *L* = 1,500 bytes (roughly corresponding to a maximum-sized
+    Ethernet packet) and for *L* = 50 (corresponding to an ATM
+    packet).
+
+    c. Calculate the store-and-forward delay at a single switch for a
+    link rate of *R* = 622 Mbps for *L* = 1,500 bytes, and for *L* =
+    50 bytes.
+
+    d. Comment on the advantages of using a small packet size.
+   
+1. Kurose & Ross, Chapter 6, Problem P29
+
+    Consider the MPLS network shown below, and suppose that routers R5
+    and R6 are now MPLS enabled.
+
+    ![narrow](/static/img/kurose/fourth/fig05_37.png)
+
+    Suppose that we want to perform traffic engineering so that
+    packets from R6 destined for A are switched to A via R6-R4-R3-R1,
+    and packets from R5 destined for A are switched via
+    R5-R4-R2-R1. Show the MPLS tables in R5 and R6, as well as the
+    modified table in R4, that would make this possible.
+
+1. Kurose & Ross, Chapter 6, Problem P32
+
+    Consider the data center network with hierarchical topology in the
+    figure below.
+
+    ![narrow](/static/img/kurose/seventh/fig6-30.jpg)
+
+    Suppose now there are 80 pairs of flows, with ten
+    flows between the first and ninth rack, ten flows between the
+    second and tenth rack, and so on. Further suppose that all links
+    in the network are 10 Gbps, except for the links between hosts and
+    TOR switches, which are 1 Gbps.
+
+    a. Each flow has the same data rate; determine the maximum rate of a flow.
+
+    b. For the same traffic pattern, determine the maximum rate of a
+    flow for the highly interconnected topology shown below.
+
+    c. Now suppose there is a similar traffic pattern, but involving
+    20 hosts on each rack and 160 pairs of flows. Determine the
+    maximum flow rates for the two topologies.
+
+{% endfilter %}
+
+{% endblock %}
