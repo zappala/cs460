@@ -1,5 +1,6 @@
 import sys
 
+from views import winter2018
 from views import winter2017
 from views import winter2016
 from views import winter2015

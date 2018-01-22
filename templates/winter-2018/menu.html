@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% set term = 'winter-2018' %}
+
+{% macro render(directory,page,name) -%}
+{% set path = term %}
+{% if directory %}
+{% set path = term + '/' + directory %}
+{% endif %}
+{% set target = page %}
+{% if page == '' %}
+{% set target = 'index' %}
+{% endif %}
+<li {% if active == target %}class="active"{% endif %}>
+<a href={{url_for("show",directory=path, page=page)}} >{{name}}</a></li>
+{%- endmacro %}
+
+{% block term %}
+Winter 2018
+{% endblock %}
+
+{% block menu %}
+
+{{ render('','','Syllabus') }}
+{{ render('','schedule','Schedule') }}
+<li class="has-dropdown {% if previous == "tutorials" %}active{% endif %}">
+  <a href="#">Homework</a>
+  <ul class="dropdown">
+    {{ render('homework','networks-and-delay','Networks and Delay') }}
+    {{ render('homework','applications','Applications') }}
+    {{ render('homework','transport-layer','Transport Layer') }}
+    {{ render('homework','network-layer','Network Layer') }}
+    {{ render('homework','link-layer','Link Layer') }}
+  </ul>
+</li>
+<li class="has-dropdown {% if previous == "labs" %}active{% endif %}">
+  <a href="#">Labs</a>
+  <ul class="dropdown">
+    {{ render('labs','network-simulation','Network Simulation') }}
+    {{ render('labs','reliable-transport','Reliable Transport') }}
+    {{ render('labs','congestion-control','Congestion Control Part 1') }}
+  </ul>
+</li>
+<li class="has-dropdown {% if previous == "help" %}active{% endif %}">
+  <a href="#">Help</a>
+  <ul class="dropdown">
+    {{ render('help','instructor','Instructor and TAs') }}
+    {{ render('help','officehours','Office Hours') }}
+    <li><a href="https://piazza.com/byu/winter2018/cs460" target="_blank">Discussion <i class="fi-arrow-right"></i></a></li>
+  </ul>
+</li>
+</ul>
+
+{% endblock %}

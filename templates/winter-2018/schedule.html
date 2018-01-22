@@ -1,0 +1,41 @@
+{% extends "winter-2018/menu.html" %}
+
+{% block page %}
+
+<h1>Schedule</h1>
+
+<p>This schedule is <u>subject to change</u>. Assignments may be changed
+up until the day they are assigned.</p>
+
+<h2>Section 1: MWF 10:00am C261 ESC</h2>
+
+{% for week in weeks %}
+<h2 class="plain">Week {{ week.number }}</h2>
+
+{% for day in week.days %}
+<div class="schedule">
+
+  <div class="day">{{ day.date }}</div>
+
+  <div>
+    {% if day.section %}
+    <div class="content">
+      <span class="section">{{ day.section }}</span> {% if day.topic %} | <span class="topic">{{ day.topic }}</span>{% endif %}
+      <ul>
+	{% for reading in day.readings %}
+	<li>{{ reading|safe }}</li>
+	{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% for assignment in day.assignments %}
+    <div class="assignment">{{ assignment|safe }}</div>
+    {% endfor %}
+  </div>
+</div>
+	
+{% endfor %}
+
+{% endfor %}
+
+{% endblock %}

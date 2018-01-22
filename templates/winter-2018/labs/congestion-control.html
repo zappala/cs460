@@ -1,0 +1,161 @@
+{% extends "winter-2018/menu.html" %}
+
+{% block page %}
+
+{% filter markdown %}
+
+# Lab: Congestion Control
+
+In this lab, you will add congestion control to your reliable
+transport protocol. You will use the simulator to examine the
+correctness of your implementation.
+
+## TCP Tahoe
+
+Implement congestion control using TCP Tahoe as your model. This
+should include the following features:
+
+* Slow start. At the start of the connection, or after any kind of
+  loss event, set cwnd (congestion window) to 1 MSS. Every time the
+  sender receives an ACK for new data, increment cwnd by the number of
+  new bytes of data acknowledged. **Never increment cwnd by more than one MSS**.
+
+* Threshold: Stop slow start when cwnd exceeds or equals the
+  threshold. Start with a threshold of 100,000 bytes.
+
+* Additive Increase: Once cwnd is larger than the threshold, use
+  additive increase. Every time the sender receives an ACK for new
+  data, increment cwnd by MSS\*b/cwnd, where MSS is the maximum segment
+  size (1000 bytes) and b is the number of new bytes acknowledged.
+
+* Fast Retransmit: A loss event is detected when there are three
+  duplicate ACKs (meaning the fourth ACK in a row for the same
+  sequence number), and TCP immediately retransmits instead of waiting
+  for the retransmission timer.
+
+* When a loss event is detected (a timeout or 3 duplicate ACKs), then
+  set the threshold to max(cwnd/2,MSS) and set cwnd to 1 MSS.
+
+* Ensure that cwnd is always a multiple of MSS. This means that for the Additive Increase
+  rule above, rather than directly incrementing cwnd by MSS\*b/cwnd, keep a separate
+  variable, *increment*, that stores the increment each time. Once *increment* exceeds MSS,
+  add one MSS to cwnd and decrease *increment* by one MSS. Reset the *increment* to zero
+  when a loss event occurs.
+
+  Likewise, when setting the threshold to half the previous cwnd, subtract off any bytes that are in excess of a multiple of MSS.
+
+
+## Graphing
+
+I have added graphing capabilities to Bene and provided a script that plots several useful graphs
+for TCP. Please pull and merge in this new version.
+
+The new functionality in `sim.py` includes a method called Sim.plot():
+
+    @staticmethod
+    def plot(filename, message):
+
+I have modified TCP to use this functionality to output a file called `sequence.csv` that can be
+used to plot a sequence number graph:
+
+    def plot_sequence_header(self):
+        if self.node.hostname =='n1':
+            Sim.plot('sequence.csv','Time,Sequence Number,Event\n')
+
+    def plot_sequence(self,sequence,event):
+        if self.node.hostname =='n1':
+            Sim.plot('sequence.csv','%s,%s,%s\n' % (Sim.scheduler.current_time(),sequence,event))
+
+This functionality is used throughout `tcp.py` to add events to this file for 'send', 'drop', and 'ack' events.
+In addition, `link.py` has been modified to add events for 'transmit' events.
+
+I have also modified TCP to allow you to pass in a list of sequence numbers that will be dropped
+the first time these packets are sent.
+
+Finally, I have provided a script called `tcp-plot.py` in the examples directory to plot both the congestion window
+over time and the sequence number graph seen in the [TCP SACK paper](http://www.icir.org/floyd/papers/sacks.pdf).
+
+## Tests
+
+Set up a one-hop network with a bidirectional link having a bandwidth of 1 Mbps and a latency of 100 ms.
+Transfer the `internet-architecture.pdf` file in the examples directory.
+
+Use the following series of tests to demonstrate that your congestion control
+algorithm works properly. Use a congestion window graph and a sequence plot graph to verify the
+correct behavior in each case. 
+
+* Slow start: Transfer the file with no packets dropped. Because the threshold is 100,000, the window size should grow large very rapidly. Show just the congestion window graph in this case.
+
+* One packet loss: Transfer the file and drop sequence number 14000. Show both the congestion window graph and the sequence graph for this case.
+
+* Two packet loss: Repeat and drop sequence numbers 14000 and number 28000. Show both the congestion window graph and the sequence graph for this case.
+
+* Three packet loss: Repeat and drop sequence numbers 14000, 26000, and 28000.  Show both the congestion window graph and the sequence graph for this case.
+
+Note that your sequence graphs should match the SACK paper.
+
+## Report
+
+Write a formal, scientific report that describes each of your tests. Include
+your graphs in your report and discuss whether
+you got the expected results.
+
+Write using a formal, scientific report style. Your report should be
+written as if you are explaining your work to another CS student, and
+they need all of the details of what you did so that they can
+replicate your experiments.
+
+Your report can be any length, as long as you thoroughly describe your
+project and results. The paper must use 11 point type, single spacing,
+and one column per page.
+
+Your report must match the LaTex style shown in [this
+template](https://github.com/zappala/latex-report-template).  If you
+choose to use LaTeX, I suggest using the [WikiBooks LaTex
+reference](http://en.wikibooks.org/wiki/LaTeX).
+
+## Submission
+
+Your code should be located in a directory called lab3 in the top level:
+
+<pre> bene/ src/ examples/ lab3/ </pre>
+
+Turn in a tarball that includes all of your code (for the simulator,
+experiments, graphing, etc), and a PDF of your report:
+
+<pre> tar -czvf bene.tgz bene </pre>
+
+using Learning Suite.
+
+## Grading
+
+This lab is worth 150 points, and will be graded using the following
+rubric:
+
+* 50% for partial work that indicates substantial effort was made
+
+* 70% - 80% for C quality work (Congestion control tests partly work,
+the report is well written.)
+
+* 80% - 90% for B quality work (Congestion control tests mostly work,
+  the report is fair.)
+
+* 90% - 100% for A quality work (Congestion control tests all work,
+and the report is well written.)
+
+* Extra 15 points for implementing Fast Recovery (Reno), which sets
+  the congestion window to 1/2 the previous value instead of 1 MSS
+  when loss is detected via duplicate ACKs.  In addition, Reno
+  inflates the congestion window for extra duplicate ACKs. Follow
+  section 3 of the SACK paper to learn how to implement this. You must
+  be able to show Tahoe style congestion control in the rest of your
+  report, and this section must use a sequence number plot to validate
+  accuracy. Full points if you can show Reno reacting poorly to burst
+  loss, like in the SACK paper.
+
+To get full points, all experiments must work well and the report must
+be complete and written with a scientific style.
+
+{% endfilter %}
+
+{% endblock %}
