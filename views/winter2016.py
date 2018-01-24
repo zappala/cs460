@@ -1,7 +1,7 @@
 from flask import render_template
 
 from config import app
-from schedule import *
+from .schedule import *
 
 @app.route('/winter-2016/schedule')
 def winter2016schedule():

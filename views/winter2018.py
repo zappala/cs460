@@ -1,12 +1,13 @@
 from flask import render_template
 
 from config import app
-from schedule import *
+from .schedule import *
 
 @app.route('/winter-2018/schedule')
 def winter2018schedule():
     static = '/static/lectures/winter-2015/'
     latest = '/static/lectures/winter-2017/'
+    more = '/static/lectures/winter-2018/'
     term = '/winter-2018/'
     s = Schedule()
 
@@ -49,6 +50,7 @@ def winter2018schedule():
     d.lecture('Application Layer','HTTP')
     d.reading('Chapter 2.2')
     d.assignment('Homework: Networks and Delay',term + 'homework/networks-and-delay')
+    d.reading('HTTP',more + 'http.pdf')
 
     #d.reading("Understanding the Domain Registration Behavior of Spammers (optional)","http://conferences.sigcomm.org/imc/2013/papers/imc247-haoA.pdf")
     #d.reading('The Long "Taile" of Typosquatting Domain Names (optional, domains)',"https://www.usenix.org/conference/usenixsecurity14/technical-sessions/presentation/szurdi")
