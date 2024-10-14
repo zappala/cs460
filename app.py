@@ -8,11 +8,12 @@ from views import winter2014
 
 from flask import Flask, render_template
 from flask_frozen import Freezer
-from flaskext.markdown import Markdown
+from flask_misaka import Misaka
+
 
 from config import app, freezer
 
-Markdown(app)
+Misaka(app)
 
 @app.route('/',defaults={'directory':None,'page':'index'})
 @app.route('/<page>',defaults={'directory':None})
